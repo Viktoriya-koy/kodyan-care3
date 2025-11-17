@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Supervivencia Emocional | Kodyan Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .herramienta-detalle {
+            padding: 8rem 0 4rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff5f5 0%, #f0f9ff 100%);
+        }
+
+        .supervivencia-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        /* BANNER INICIAL */
+        .banner-supervivencia {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .banner-supervivencia h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner-supervivencia p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .pilares-supervivencia {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pilar {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .pilar:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .pilar .emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* SECCIONES EXPANDIDAS */
+        .seccion-supervivencia {
+            background: var(--color-surface);
+            margin-bottom: 3rem;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border-left: 5px solid;
+            transition: var(--transition);
+        }
+
+        .seccion-supervivencia:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .seccion-supervivencia.tribus { border-left-color: #FF6B6B; }
+        .seccion-supervivencia.trabajo { border-left-color: #4ECDC4; }
+        .seccion-supervivencia.acompanantes { border-left-color: #06D6A0; }
+
+        .seccion-supervivencia h2 {
+            color: var(--color-text);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .intro-seccion {
+            background: var(--color-secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            border-left: 4px solid currentColor;
+        }
+
+        .subseccion {
+            margin-bottom: 3rem;
+        }
+
+        .subseccion h3 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .herramientas-lista {
+            background: var(--color-secondary);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .herramientas-lista h4 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .herramientas-lista ol, .herramientas-lista ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .herramientas-lista li {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            font-size: 1.1rem;
+        }
+
+        .tip-supervivencia {
+            background: #f0f9ff;
+            border-left: 4px solid var(--color-guide);
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+        }
+
+        .alerta-practica {
+            background: #fffaf0;
+            border-left: 4px solid #FFD166;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+        }
+
+        .ejemplo-concreto {
+            background: #f8f5ff;
+            border-left: 4px solid #8A85FF;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+        }
+
+        /* Números de pasos */
+        .herramientas-lista ol {
+            counter-reset: step-counter;
+        }
+
+        .herramientas-lista ol li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .herramientas-lista ol li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: -0.2rem;
+            background: var(--color-primary);
+            color: white;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .supervivencia-container {
+                padding: 0.5rem;
+            }
+            
+            .banner-supervivencia {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem 2rem;
+            }
+            
+            .banner-supervivencia h2 {
+                font-size: 1.8rem;
+            }
+            
+            .seccion-supervivencia {
+                padding: 2rem 1.5rem;
+            }
+            
+            .pilares-supervivencia {
+                grid-template-columns: 1fr;
+            }
+            
+            .herramientas-lista {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="resources/pulpo-logo.png" alt="Kodyan Care" class="logo-pulpo">
+                Kodyan Care
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#herramientas">Herramientas</a></li>
+                    <li><a href="index.html#regulacion">Regulación</a></li>
+                    <li><a href="index.html#como-ayudar">Cómo Ayudar</a></li>
+                    <li><a href="emergencias.html" class="btn-emergencia">🚨 Emergencia</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <main class="herramienta-detalle">
+        <div class="container">
+            <h1>🎒 Kit de Supervivencia Emocional</h1>
+            <p class="subtitulo">Tres pilares esenciales para navegar la complejidad actual: Tribus, Trabajo y Acompañantes</p>
+
+            <!-- BANNER PRINCIPAL -->
+            <div class="banner-supervivencia">
+                <h2>Supervivencia con Conexión y Dignidad</h2>
+                <p>Herramientas prácticas para cuando el mundo pide más de lo que tenés para dar</p>
+                
+                <div class="pilares-supervivencia">
+                    <div class="pilar">
+                        <span class="emoji">💝</span>
+                        <h3>Tribus</h3>
+                        <p>Humanos que entienden tus códigos</p>
+                        <small>Presenciales y virtuales</small>
+                    </div>
+                    <div class="pilar">
+                        <span class="emoji">💼</span>
+                        <h3>Trabajo</h3>
+                        <p>Sobrevivir al mundo laboral</p>
+                        <small>Límites y autocuidado</small>
+                    </div>
+                    <div class="pilar">
+                        <span class="emoji">🐾</span>
+                        <h3>Acompañantes</h3>
+                        <p>Mascotas que sanan sin palabras</p>
+                        <small>Amor incondicional</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="supervivencia-container">
+                <!-- 1. TRIBUS -->
+                <div class="seccion-supervivencia tribus">
+                    <h2><span>💝</span> Tribus: Humanos que Entienden Tus Códigos</h2>
+                    
+                    <div class="intro-seccion">
+                        <p>Tu tribu no siempre es la que te tocó, sino la que elegís. Gente que entiende tus memes sin contexto, celebra tus logros pequeños y te abraza en tus días grises. Presencial o virtual, lo que importa es la conexión real.</p>
+                    </div>
+
+                    <div class="subseccion">
+                        <h3>🌐 Tribus Digitales: Encontrar Tu Gente en el Espacio Virtual</h3>
+                        
+                        <div class="herramientas-lista">
+                            <h4>🔍 Cómo Identificar Comunidades Seguras</h4>
+                            <ol>
+                                <li><strong>Buscar por intereses auténticos:</strong> No lo que "deberías" gustar, sino lo que realmente te apasiona</li>
+                                <li><strong>Señales de espacios saludables:</strong> Moderación activa, reglas claras, respeto en las discusiones</li>
+                                <li><strong>Grupos pequeños vs grandes:</strong> Los grupos más chicos suelen tener mayor conexión real</li>
+                                <li><strong>Comunidades de apoyo mutuo:</strong> Donde el trueque es emocional, no transaccional</li>
+                            </ol>
+                        </div>
+
+                        <div class="herramientas-lista">
+                            <h4>💬 Códigos Compartidos y Rituales Digitales</h4>
+                            <ul>
+                                <li><strong>El poder terapéutico del meme:</strong> Esos que solo tu tribu entiende sin explicación</li>
+                                <li><strong>Reels que son abrazos digitales:</strong> Contenido que te hace sentir menos solo/a</li>
+                                <li><strong>Glosarios emocionales compartidos:</strong> Palabras y frases que solo ustedes entienden</li>
+                                <li><strong>Rituales digitales:</strong> Buenos días en el grupo, check-ins emocionales, despedidas</li>
+                            </ul>
+                        </div>
+
+                        <div class="ejemplo-concreto">
+                            <h4>📱 Ejemplo Práctico: Construir Tu Tribu desde Cero</h4>
+                            <p><strong>Paso 1:</strong> Identificá 2-3 intereses REALES tuyos (no los "presentables")<br>
+                            <strong>Paso 2:</strong> Buscá grupos pequeños en Facebook/Telegram de eso<br>
+                            <strong>Paso 3:</strong> Participá durante una semana sin presión<br>
+                            <strong>Paso 4:</strong> Identificá a 1-2 personas con quien resonás<br>
+                            <strong>Paso 5:</strong> Proponé un grupo más chico o chat individual</p>
+                        </div>
+                    </div>
+
+                    <div class="subseccion">
+                        <h3>👥 Tribus Presenciales: Conexión en el Mundo Real</h3>
+                        
+                        <div class="herramientas-lista">
+                            <h4>🏘️ Encontrar Comunidades Locales</h4>
+                            <ul>
+                                <li><strong>Centros comunitarios:</strong> Talleres, actividades, espacios de encuentro</li>
+                                <li><strong>Bibliotecas públicas:</strong> No solo libros, también actividades y grupos</li>
+                                <li><strong>Deportes o hobbies grupales:</strong> Desde yoga hasta juegos de mesa</li>
+                                <li><strong>Voluntariado:</strong> Conectar haciendo el bien</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-supervivencia">
+                            <p>💡 <strong>Para introvertidos/autistas:</strong> La calidad importa más que la cantidad. Un amigo verdadero vale más que 10 conocidos. No tenés que ser "social" para encontrar tu tribu, solo auténtico.</p>
+                        </div>
+                    </div>
+
+                    <div class="alerta-practica">
+                        <h4>🤝 Mantenimiento de Tribus en Días Bajos</h4>
+                        <p><strong>Cuando no tenés energía para socializar:</strong><br>
+                        • Mensaje pre-armado: "Hoy estoy con poca energía pero quería saber cómo estás"<br>
+                        • Compartir un meme sin esperar respuesta<br>
+                        • Decir "hoy no puedo, pero te aviso cuando sí"<br>
+                        • Tu tribu real entiende que a veces desaparecés</p>
+                    </div>
+                </div>
+
+                <!-- 2. TRABAJO -->
+                <div class="seccion-supervivencia trabajo">
+                    <h2><span>💼</span> Trabajo: Sobrevivir al Mundo Laboral</h2>
+                    
+                    <div class="intro-seccion">
+                        <p>Cuando el trabajo consume más de lo que da. Estrategias para poner límites, preservar tu energía y recordar que tu valor como persona no está determinado por tu productividad.</p>
+                    </div>
+
+                    <div class="subseccion">
+                        <h3>🛡️ Límites Laborales Sanos</h3>
+                        
+                        <div class="herramientas-lista">
+                            <h4>🎯 Cómo Establecer Límites sin Culpa</h4>
+                            <ol>
+                                <li><strong>Horarios claros:</strong> Definir hora de entrada y salida REAL (aunque trabajes desde casa)</li>
+                                <li><strong>Comunicación asertiva:</strong> "Mi horario laboral termina a las X, lo retomamos mañana"</li>
+                                <li><strong>Descansos obligatorios:</strong> 5-10 minutos cada 2 horas, lejos de pantallas</li>
+                                <li><strong>Derecho a la desconexión:</strong> No revisar emails/mensajes fuera de horario</li>
+                                <li><strong>Vacaciones reales:</strong> Desconexión total, sin "chequeos rápidos"</li>
+                            </ol>
+                        </div>
+
+                        <div class="herramientas-lista">
+                            <h4>⚡ Manejo de Energía Durante la Jornada</h4>
+                            <ul>
+                                <li><strong>Pomodoro emocional:</strong> 25 min trabajo - 5 min descanso REAL (sin pantallas)</li>
+                                <li><strong>Tareas por energía:</strong> Trabajo creativo con energía alta, tareas mecánicas con baja</li>
+                                <li><strong>Micro-descansos estratégicos:</strong> Estiramientos, respiraciones, mirar por la ventana</li>
+                                <li><strong>Hidratación consciente:</strong> Beber agua como pausa, no como afterthought</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subseccion">
+                        <h3>🔥 Prevención y Manejo del Burnout Laboral</h3>
+                        
+                        <div class="herramientas-lista">
+                            <h4>🔍 Señales Tempranas de Burnout</h4>
+                            <ul>
+                                <li><strong>Cansancio crónico:</strong> Que no se va con el descanso</li>
+                                <li><strong>Cinismo e irritabilidad:</strong> Hacia el trabajo, compañeros, tareas</li>
+                                <li><strong>Disminución del rendimiento:</strong> Aunque trabajés más horas</li>
+                                <li><strong>Problemas de salud:</strong> Dolores de cabeza, espalda, problemas digestivos</li>
+                                <li><strong>Aislamiento:</strong> Evitar contacto con compañeros</li>
+                            </ul>
+                        </div>
+
+                        <div class="herramientas-lista">
+                            <h4>🔄 Protocolo de Recuperación</h4>
+                            <ol>
+                                <li><strong>Reconocimiento inmediato:</strong> "Estoy en burnout, necesito parar"</li>
+                                <li><strong>Reducción de expectativas:</strong> Bajar estándares temporalmente</li>
+                                <li><strong>Descanso real:</strong> No "vacaciones trabajando"</li>
+                                <li><strong>Reevaluación de prioridades:</strong> ¿Qué es realmente urgente?</li>
+                                <li><strong>Búsqueda de apoyo:</strong> Terapia, grupos de apoyo, hablar con RRHH</li>
+                            </ol>
+                        </div>
+
+                        <div class="ejemplo-concreto">
+                            <h4>💼 Ejemplo: Jornada Laboral con Límites</h4>
+                            <p><strong>8:00-10:00:</strong> Trabajo focalizado (energía alta)<br>
+                            <strong>10:00-10:15:</strong> Descanso REAL (café lejos del escritorio)<br>
+                            <strong>10:15-12:30:</strong> Tareas medianas<br>
+                            <strong>12:30-13:30:</strong> Almuerzo SIN pantallas<br>
+                            <strong>13:30-15:30:</strong> Reuniones/tareas livianas<br>
+                            <strong>15:30-15:45:</strong> Micro-descanso (estiramientos)<br>
+                            <strong>15:45-17:00:</strong> Cierre del día<br>
+                            <strong>17:00:</strong> DESCONEXIÓN TOTAL</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-supervivencia">
+                        <p>💡 <strong>Recordá:</strong> Tu trabajo es lo que hacés, no quién sos. Merecés descansar, enfermarte, tener vida personal y cometer errores. Sos humano, no un recurso.</p>
+                    </div>
+                </div>
+
+                <!-- 3. ACOMPAÑANTES EMOCIONALES -->
+                <div class="seccion-supervivencia acompanantes">
+                    <h2><span>🐾</span> Acompañantes Emocionales: Mascotas que Sanan</h2>
+                    
+                    <div class="intro-seccion">
+                        <p>Terapeutas de 4 patas, aletas, alas o patitas. Seres que no piden explicaciones, no juzgan tus días malos y te reciben siempre con el mismo amor. El vínculo humano-animal como ancla en tormentas emocionales.</p>
+                    </div>
+
+                    <div class="subseccion">
+                        <h3>❤️ El Poder Terapéutico de las Mascotas</h3>
+                        
+                        <div class="herramientas-lista">
+                            <h4>🎯 Beneficios Científicamente Comprobados</h4>
+                            <ul>
+                                <li><strong>Reducción de cortisol:</strong> Acariciar animales baja hormonas del estrés</li>
+                                <li><strong>Aumento de oxitocina:</strong> La "hormona del amor" que genera bienestar</li>
+                                <li><strong>Presión arterial:</strong> Dueños de mascotas tienen valores más saludables</li>
+                                <li><strong>Ansiedad y depresión:</strong> Síntomas reducidos significativamente</li>
+                                <li><strong>Sentido de propósito:</strong> Los cuidados dan estructura y significado</li>
+                            </ul>
+                        </div>
+
+                        <div class="herramientas-lista">
+                            <h4>🐕🦜🐠 Para Diferentes Tipos de Mascotas</h4>
+                            <ul>
+                                <li><strong>Perros/Gatos:</strong> Contacto físico, paseos que obligan a salir, juego</li>
+                                <li><strong>Peces/Acuarios:</strong> Observación meditativa, reduce ansiedad como la meditación</li>
+                                <li><strong>Aves:</strong> Sonidos relajantes, interacción vocal, observación</li>
+                                <li><strong>Roedores/Reptiles:</strong> Cuidados metódicos, observación tranquila</li>
+                                <li><strong>Plantas:</strong> Cuidado como ritual, observación del crecimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subseccion">
+                        <h3>🏠 Ejercicios de Conexión con Tu Mascota</h3>
+                        
+                        <div class="herramientas-lista">
+                            <h4>🐾 Si Tenés Mascota</h4>
+                            <ol>
+                                <li><strong>Meditación conjunta:</strong> Sentate cerca, cerra los ojos y sincronizá tu respiración con la suya</li>
+                                <li><strong>Masaje consciente:</strong> Acariciala prestando atención a cada sensación</li>
+                                <li><strong>Observación sin juicios:</strong> Mirala por 5 minutos como si fuera la primera vez</li>
+                                <li><strong>Paseo mindfulness:</strong> Caminá concentrado en los sonidos, olores, sensaciones</li>
+                                <li><strong>Ritual de agradecimiento:</strong> Agradecé mentalmente su compañía</li>
+                            </ol>
+                        </div>
+
+                        <div class="herramientas-lista">
+                            <h4>🌿 Si No Tenés Mascota</h4>
+                            <ul>
+                                <li><strong>Voluntariado en refugios:</strong> Dales amor aunque sea temporal</li>
+                                <li><strong>Observación urbana:</strong> Pájaros, ardillas, insectos - conexión con lo salvaje cercano</li>
+                                <li><strong>Videos terapéuticos:</strong> Acuarios, pájaros cantando, animales jugando</li>
+                                <li><strong>Cuidar plantas:</strong> Empezá con una suculenta o planta resistente</li>
+                                <li><strong>Ofrecete a pasear mascotas:</strong> De vecinos, amigos, familiares</li>
+                            </ul>
+                        </div>
+
+                        <div class="ejemplo-concreto">
+                            <h4>🐕 Ejercicio: "Sincronización con Tu Mascota"</h4>
+                            <p><strong>Duración:</strong> 10 minutos<br>
+                            <strong>Materiales:</strong> Tu mascota (o video de animales)<br>
+                            <strong>Pasos:</strong><br>
+                            1. Sentate en un lugar tranquilo con tu mascota cerca<br>
+                            2. Cerra los ojos y concentrate en su respiración<br>
+                            3. Intentá sincronizar tu respiración con la suya<br>
+                            4. Después de 2 minutos, abrí los ojos y acariciala suavemente<br>
+                            5. Seguí respirando juntos por 5 minutos más<br>
+                            6. Agradecé mentalmente su presencia</p>
+                        </div>
+                    </div>
+
+                    <div class="alerta-practica">
+                        <h4>🚨 Para Crisis Emocionales Intensas</h4>
+                        <p><strong>Si tenés mascota:</strong> Abrazala fuerte, sentí su calor, su respiración, su latido. Concentrate en ese ser que te quiere incondicionalmente.<br>
+                        <strong>Si no tenés:</strong> Buscá videos de animales en YouTube - el efecto calmante es real. Acuarios, gatitos ronroneando, perros jugando.</p>
+                    </div>
+
+                    <div class="tip-supervivencia">
+                        <p>💡 <strong>Dato científico:</strong> 15 minutos acariciando un perro o gato puede bajar tu presión arterial y ansiedad tanto como algunos medicamentos. El ronroneo de los gatos tiene frecuencias terapéuticas para la curación ósea y reducción del estrés.</p>
+                    </div>
+                </div>
+
+                <!-- CIERRE -->
+                <div class="seccion-supervivencia" style="border-left-color: #8A85FF; text-align: center;">
+                    <h2><span>✨</span> Tu Equipo de Supervivencia Personal</h2>
+                    <div class="intro-seccion">
+                        <p>Recordá: No tenés que enfrentar todo solo/a. Tu equipo de supervivencia puede incluir humanos que te entienden, estrategias laborales que te protegen y compañeros no-humanos que te aman sin condiciones.</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                        <div style="background: var(--color-secondary); padding: 2rem; border-radius: 15px;">
+                            <h4 style="color: #FF6B6B; margin-bottom: 1rem;">💝 Mi Tribu</h4>
+                            <ul style="text-align: left;">
+                                <li>¿Quiénes son mi gente?</li>
+                                <li>¿Dónde los encuentro?</li>
+                                <li>¿Cómo los mantengo?</li>
+                            </ul>
+                        </div>
+                        <div style="background: var(--color-secondary); padding: 2rem; border-radius: 15px;">
+                            <h4 style="color: #4ECDC4; margin-bottom: 1rem;">💼 Mi Trabajo</h4>
+                            <ul style="text-align: left;">
+                                <li>¿Cuáles son mis límites?</li>
+                                <li>¿Cómo manejo mi energía?</li>
+                                <li>¿Cuándo pedir ayuda?</li>
+                            </ul>
+                        </div>
+                        <div style="background: var(--color-secondary); padding: 2rem; border-radius: 15px;">
+                            <h4 style="color: #06D6A0; margin-bottom: 1rem;">🐾 Mis Acompañantes</h4>
+                            <ul style="text-align: left;">
+                                <li>¿Quién me acompaña?</li>
+                                <li>¿Cómo me conecto?</li>
+                                <li>¿Dónde encuentro consuelo?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tip-supervivencia" style="max-width: 600px; margin: 0 auto;">
+                        <p>🌱 <strong>Sobrevivir no es solo aguantar:</strong> Es encontrar formas de florecer incluso en tierra árida. Tenés derecho a buscar belleza, conexión y paz en medio del caos. Tu bienestar importa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">Kodyan Care</a>
+                    <p>Tu puerto seguro para tormentas emocionales.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Herramientas</h4>
+                    <ul>
+                        <li><a href="anclaje.html">Técnicas de Anclaje</a></li>
+                        <li><a href="supervivencia.html">Kit de Supervivencia</a></li>
+                        <li><a href="estudiantes.html">Kit Estudiantil</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="emergencias.html">Líneas de Crisis</a></li>
+                        <li><a href="guias.html">Guías Completas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:care@koyhq.com">care@koyhq.com</a></li>
+                        <li><a href="https://instagram.com/kodyan.care" target="_blank">Instagram</a></li>
+                        <li><a href="https://koyhq.com" target="_blank">Koy HQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p><strong>💡 Importante:</strong> Esto no es un substituto de terapia profesional. Si estás en crisis, contactá a <a href="emergencias.html">recursos de emergencia</a>.</p>
+                <p>&copy; 2025 Kodyan Care. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="js/script.js"></script>
+    <script>
+        // Efectos visuales suaves al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const secciones = document.querySelectorAll('.seccion-supervivencia');
+            secciones.forEach((seccion, index) => {
+                setTimeout(() => {
+                    seccion.style.opacity = '1';
+                    seccion.style.transform = 'translateY(0)';
+                }, index * 400);
+            });
+
+            const pilares = document.querySelectorAll('.pilar');
+            pilares.forEach((pilar, index) => {
+                setTimeout(() => {
+                    pilar.style.opacity = '1';
+                    pilar.style.transform = 'translateY(0)';
+                }, index * 200 + 600);
+            });
+        });
+
+        // Smooth scroll para navegación interna (si agregamos anclas)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
