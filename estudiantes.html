@@ -248,37 +248,36 @@
 
     <!-- ===== CONTENIDO PRINCIPAL ===== -->
   <main class="herramienta-detalle">
-    <div class="container">
-        <h1>🎓 Kit de Supervivencia Estudiantil</h1>
-        <p class="subtitulo">Herramientas específicas para cuando la universidad, facultad o estudios se sienten abrumadores</p>
+        <div class="container">
+            <h1>🎓 Kit de Supervivencia Estudiantil</h1>
+            <p class="subtitulo">Herramientas específicas para cuando la universidad, facultad o estudios se sienten abrumadores</p>
 
-        <!-- BANNER ESTADÍSTICAS ESTUDIANTILES -->
-        <div class="banner-estudiantes">
-            <h2>No estás solo en esto</h2>
-            <p>El 80% de estudiantes experimenta ansiedad académica en algún momento de su carrera</p>
-            
-                 <div class="banner-supervivencia" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                <h2>No estás solo en esto</h2>
-                <p>Estadísticas reales sobre salud mental estudiantil</p>
+            <!-- BANNER CORREGIDO - SIN DUPLICADOS -->
+            <div class="banner-estudiantes" style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                margin: 2rem auto 3rem auto;
+                padding: 2rem;
+                max-width: 900px;
+            ">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">No estás solo en esto</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">El 80% de estudiantes experimenta ansiedad académica en algún momento</p>
                 
-                <div class="pilares-supervivencia">
-                    <div class="pilar">
-                        <span class="stat-number">74%</span>
-                        <h3>Ansiedad Pre-examen</h3>
-                        <p>3 de cada 4 estudiantes</p>
+                <div class="stats-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+                    <div class="stat-item" style="text-align: center; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; display: block;">74%</span>
+                        <span class="stat-label" style="font-size: 0.9rem; opacity: 0.8;">Ansiedad Pre-examen</span>
                     </div>
-                    <div class="pilar">
-                        <span class="stat-number">62%</span>
-                        <h3>Síndrome del Impostor</h3>
-                        <p>"No merezco estar aquí"</p>
+                    <div class="stat-item" style="text-align: center; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; display: block;">62%</span>
+                        <span class="stat-label" style="font-size: 0.9rem; opacity: 0.8;">Síndrome del Impostor</span>
                     </div>
-                    <div class="pilar">
-                        <span class="stat-number">58%</span>
-                        <h3>Agotamiento Extremo</h3>
-                        <p>Burnout académico</p>
+                    <div class="stat-item" style="text-align: center; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; display: block;">58%</span>
+                        <span class="stat-label" style="font-size: 0.9rem; opacity: 0.8;">Agotamiento Extremo</span>
                     </div>
                 </div>
             </div>
+
             <div class="estudiantes-container">
                 <!-- 1. ANSIEDAD PRE-EXAMEN -->
                 <div class="tecnica-estudiante ansiedad">
