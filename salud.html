@@ -44,8 +44,8 @@
 
         .principios-salud {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
             margin-top: 2rem;
         }
 
@@ -82,12 +82,13 @@
         .acordeon-item.fisica { border-left-color: #06D6A0; }
         .acordeon-item.prevencion { border-left-color: #FFD166; }
         .acordeon-item.emergencia { border-left-color: #FF6B6B; }
+        .acordeon-item.condiciones { border-left-color: #8A85FF; }
 
         .acordeon-header {
             padding: 2rem;
             cursor: pointer;
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
             transition: var(--transition);
         }
@@ -184,6 +185,14 @@
             border-radius: 10px;
         }
 
+        .tip-supervivencia {
+            background: #f0f9ff;
+            border-left: 4px solid var(--color-guide);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+        }
+
         .btn-salud {
             background: linear-gradient(135deg, #06D6A0, #118AB2);
             color: white;
@@ -253,6 +262,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .principios-salud {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .salud-container {
                 padding: 0.5rem;
@@ -303,16 +318,15 @@
         </div>
     </header>
 
-
-     <!-- ===== CONTENIDO PRINCIPAL ===== -->
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <main class="herramienta-detalle">
         <div class="container">
             <h1>💚 Salud Integral Sin Juicios</h1>
             <p class="subtitulo">Cuidado accesible para todos los cuerpos, todas las realidades, sin estigmas</p>
 
-            <!-- BANNER ACTUALIZADO CON LOS MISMOS AJUSTES -->
-            <div class="banner-salud" style="margin: 2rem auto 3rem auto; padding: 2rem;">
-                <h2> La salud es un derecho, no un privilegio</h2>
+            <!-- BANNER ACTUALIZADO -->
+            <div class="banner-salud">
+                <h2>La salud es un derecho, no un privilegio</h2>
                 <p>Información accesible, recursos públicos y apoyo sin juicios para el cuidado de tu salud</p>
                 
                 <div class="principios-salud">
@@ -339,412 +353,445 @@
                 </div>
             </div>
 
-            <!-- [EL RESTO DEL CONTENIDO DE SALUD PERMANECE IGUAL] -->
-    
-                <!-- IVE/ILE -->
-               <div class="acordeon-salud">
-    <div class="acordeon-item derechos">
-        <div class="acordeon-header">
-            <h3><span>🤝</span> Acompañamiento en IVE/ILE</h3>
-            <span class="acordeon-icon">▼</span>
-        </div>
-        <div class="acordeon-content">
-            <div class="definicion-rapida">
-                <p>Derecho a decidir. Acompañamiento sin juicios, información segura y acceso garantizado.</p>
-            </div>
-            
-            <div class="pasos-salud">
-                <h5>📞 Protocolo de Acompañamiento:</h5>
-                <ol>
-                    <li><strong>Línea IVE Nacional:</strong> 0800-222-3444 (Gratuita)</li>
-                    <li><strong>Derecho a la objeción:</strong> Si un profesional se niega, deben derivarte</li>
-                    <li><strong>Confidencialidad:</strong> Tu decisión es privada</li>
-                    <li><strong>Acompañamiento:</strong> Podés ir con persona de confianza</li>
-                </ol>
-            </div>
-
-            <div class="recursos-utiles">
-                <h5>🔗 Recursos de Acompañamiento Especializado:</h5>
-                <ul>
-                    <li><strong>Línea IVE Nacional:</strong> 0800-222-3444 (Gratuita, 24/7)</li>
-                    <li><strong>Socorristas en Red:</strong> <a href="https://socorristasenred.org/" target="_blank" style="color: #FF6B6B; font-weight: 600;">socorristasenred.org</a> - Red feminista de acompañamiento</li>
-                    <li><strong>Centros de salud y hospitales públicos:</strong> Derecho a atención gratuita</li>
-                    <li><strong>Consejerías pre y post aborto:</strong> Acompañamiento integral</li>
-                </ul>
-            </div>
-
-            <div class="mitos-realidades">
-                <h5>🚫 Mitos vs. Realidades:</h5>
-                <ul>
-                    <li><strong>Mito:</strong> "Necesitás autorización judicial" → <strong>Realidad:</strong> Solo tu consentimiento</li>
-                    <li><strong>Mito:</strong> "Es peligroso" → <strong>Realidad:</strong> Con profesionales es seguro</li>
-                    <li><strong>Mito:</strong> "Te van a juzgar" → <strong>Realidad:</strong> Derecho a trato respetuoso</li>
-                </ul>
-            </div>
-
-            <div class="tip-supervivencia">
-                <p>💜 <strong>Socorristas en Red</strong> ofrece acompañamiento feminista, información segura y apoyo emocional en todo el país. No estás sola.</p>
-            </div>
-
-            <button class="btn-salud" onclick="mostrarRecursosIVE()">
-                📞 Ver Recursos de Acompañamiento
-            </button>
-        </div>
-    </div>
-</div>
-
-                <!-- MOVIMIENTO ACCESIBLE -->
-                <div class="acordeon-salud">
-    <div class="acordeon-item fisica">
-        <div class="acordeon-header">
-            <h3><span>💪</span> Movimiento Accesible para Todos los Cuerpos</h3>
-            <span class="acordeon-icon">▼</span>
-        </div>
-        <div class="acordeon-content">
-            <div class="definicion-rapida">
-                <p>Moverse según tus posibilidades, no según estándares imposibles. Cada cuerpo es diferente y merece movimiento que sume, no que castigue.</p>
-            </div>
-            
-            <div class="pasos-salud">
-                <h5>🎯 Movimiento Según Tu Realidad</h5>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                    <div style="background: var(--color-surface); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
-                        <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🪑 Movimiento Sentado</h6>
-                        <ul style="font-size: 0.95rem;">
-                            <li>Estiramientos de brazos y cuello</li>
-                            <li>Rotaciones de tobillos y muñecas</li>
-                            <li>Respiración diafragmática consciente</li>
-                            <li>Mini-ejercicios con bandas elásticas</li>
-                        </ul>
+            <!-- 1. SALUD MENTAL -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item mental">
+                    <div class="acordeon-header">
+                        <h3><span>🧠</span> Salud Mental y Bienestar Emocional</h3>
+                        <span class="acordeon-icon">▼</span>
                     </div>
-                    <div style="background: var(--color-surface); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4ECDC4;">
-                        <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🚶 Movimiento Suave</h6>
-                        <ul style="font-size: 0.95rem;">
-                            <li>Caminatas lentas conscientes</li>
-                            <li>Yoga en silla o adaptado</li>
-                            <li>Estiramientos de 5 minutos</li>
-                            <li>Tai Chi básico</li>
-                        </ul>
-                    </div>
-                    <div style="background: var(--color-surface); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #FF6B6B;">
-                        <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">⚡ Movimiento Energético</h6>
-                        <ul style="font-size: 0.95rem;">
-                            <li>Bailar en casa sin juicios</li>
-                            <li>Saltos suaves o saltar la soga</li>
-                            <li>Rutinas de 10-15 minutos</li>
-                            <li>Deportes que te hagan feliz</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pasos-salud">
-                <h5>🔄 Rutinas de Movimiento por Necesidad</h5>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                    <div>
-                        <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🌅 Para Empezar el Día (5 min)</h6>
-                        <ol style="font-size: 0.95rem;">
-                            <li>Estirarse como un gato en la cama</li>
-                            <li>Respirar profundamente 3 veces</li>
-                            <li>Rotar hombros y cuello suavemente</li>
-                            <li>Estiramiento de piernas sentado/a</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🕛 Para Pausas Activas (3 min)</h6>
-                        <ol style="font-size: 0.95rem;">
-                            <li>Pararse y estirar brazos al cielo</li>
-                            <li>Inclinar suavemente hacia los lados</li>
-                            <li>Rotar tobillos y muñecas</li>
-                            <li>Respirar y volver</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🌙 Para Relajar (7 min)</h6>
-                        <ol style="font-size: 0.95rem;">
-                            <li>Estiramientos suaves en el piso</li>
-                            <li>Respiración 4-7-8</li>
-                            <li>Masaje en pies y manos</li>
-                            <li>Posición fetal para soltar tensiones</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pasos-salud">
-                <h5>🚫 Mitos vs. Realidades del Movimiento</h5>
-                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem;">
-                    <div style="background: #fff5f5; padding: 1rem; border-radius: 8px; border-left: 4px solid #FF6B6B;">
-                        <strong>❌ Mito:</strong> "Tengo que hacer 1 hora de ejercicio intenso"
-                        <br><strong>✅ Realidad:</strong> 10 minutos diarios ya hacen diferencia enorme
-                    </div>
-                    <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; border-left: 4px solid #667eea;">
-                        <strong>❌ Mito:</strong> "Si no sudo, no sirve"
-                        <br><strong>✅ Realidad:</strong> El movimiento suave es igual de terapéutico
-                    </div>
-                    <div style="background: #f0fff0; padding: 1rem; border-radius: 8px; border-left: 4px solid #06D6A0;">
-                        <strong>❌ Mito:</strong> "Tengo que seguir rutinas complejas"
-                        <br><strong>✅ Realidad:</strong> Moverse como te sienta bien es suficiente
-                    </div>
-                </div>
-            </div>
-
-            <div class="tip-supervivencia">
-                <p>💡 <strong>Recordá:</strong> El movimiento es para sentirte mejor, no para cumplir estándares. 5 minutos de baile en tu habitación cuenta. Estirarte en la cama cuenta. Caminar hasta la esquina cuenta.</p>
-            </div>
-
-            <div class="alerta-practica">
-                <h5>🎯 Ejercicio "Escaneo Corporal para el Movimiento"</h5>
-                <p><strong>Paso 1:</strong> Sentate o acostate cómodo/a<br>
-                <strong>Paso 2:</strong> Preguntate: "¿Qué parte de mi cuerpo pide moverse?"<br>
-                <strong>Paso 3:</strong> Mové solo esa parte, suavemente<br>
-                <strong>Paso 4:</strong> Seguí su ritmo, no lo fuerces<br>
-                <strong>Paso 5:</strong> Agradecé a tu cuerpo por moverse</p>
-            </div>
-        </div>
-    </div>
-</div>
-              <!-- PRESIÓN ARTERIAL -->
-                <div class="acordeon-salud">
-                    <div class="acordeon-item fisica">
-                        <div class="acordeon-header">
-                            <h3><span>💓</span> Presión Arterial</h3>
-                            <span class="acordeon-icon">▼</span>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>Cuidar tu mente es tan importante como cuidar tu cuerpo. Herramientas para el día a día y recursos de apoyo.</p>
                         </div>
-                        <div class="acordeon-content">
-                            <div class="definicion-rapida">
-                                <p>Ni demasiado alta ni demasiado baja. Ambas son peligrosas y manejables.</p>
-                            </div>
-                            
-                            <div class="pasos-salud">
-                                <h5>🎯 Valores normales y de alerta:</h5>
-                                <ul>
-                                    <li><strong>Normal:</strong> Menos de 120/80 mmHg</li>
-                                    <li><strong>Prehipertensión:</strong> 120-139/80-89 mmHg</li>
-                                    <li><strong>Hipertensión Fase 1:</strong> 140-159/90-99 mmHg</li>
-                                    <li><strong>Hipotensión:</strong> Menos de 90/60 mmHg con síntomas</li>
-                                </ul>
-                            </div>
-<div class="acordeon-salud">
-    <div class="acordeon-item fisica">
-        <div class="acordeon-header">
-            <h3><span>💓</span> Presión Arterial - Primeros Auxilios</h3>
-            <span class="acordeon-icon">▼</span>
-        </div>
-        <div class="acordeon-content">
-            <div class="definicion-rapida">
-                <p>Qué hacer EN ESTE MOMENTO si tu presión se dispara o cae en picada. Acciones inmediatas mientras llegás al médico.</p>
-            </div>
-            
-            <div class="pasos-salud">
-                <h4>🚨 PRESIÓN ALTA (Hipertensión) - Protocolo Inmediato</h4>
-                <ol>
-                    <li><strong>POSICIÓN:</strong> Sentate o recostate inmediatamente, piernas ligeramente elevadas</li>
-                    <li><strong>RESPIRACIÓN:</strong> Respiración 4-7-8 (inhalar 4 seg, mantener 7, exhalar 8)</li>
-                    <li><strong>AMBIENTE:</strong> Silencio, luz tenue, alejate de pantallas y ruidos</li>
-                    <li><strong>HIDRATACIÓN:</strong> Pequeños sorbos de agua fría, sin beber mucho de golpe</li>
-                    <li><strong>NO AUTOMEDICARSE:</strong> No tomes medicamentos de otras personas</li>
-                </ol>
-            </div>
+                        
+                        <div class="pasos-salud">
+                            <h5>💡 Prácticas Diarias de Salud Mental</h5>
+                            <ol>
+                                <li><strong>Check-in emocional:</strong> 3 veces al día preguntarte "¿Cómo me siento?"</li>
+                                <li><strong>Pausas conscientes:</strong> 5 minutos cada 2 horas para respirar</li>
+                                <li><strong>Límites digitales:</strong> Horarios sin redes sociales</li>
+                                <li><strong>Gratitud diaria:</strong> Anotar 3 cosas buenas del día</li>
+                                <li><strong>Movimiento suave:</strong> Estiramientos o caminata corta</li>
+                            </ol>
+                        </div>
 
-            <div class="pasos-salud">
-                <h4>😵 PRESIÓN BAJA (Hipotensión) - Protocolo Inmediato</h4>
-                <ol>
-                    <li><strong>POSICIÓN:</strong> Acostate con las piernas elevadas por encima del corazón</li>
-                    <li><strong>HIDRATACIÓN:</strong> Bebé agua con una pizca de sal o suero oral</li>
-                    <li><strong>ALIMENTACIÓN:</strong> Come algo salado (galletitas, pan) si podés</li>
-                    <li><strong>MOVIMIENTO:</strong> Mové pies y manos en círculos para activar circulación</li>
-                    <li><strong>EVITAR:</strong> No te levantes rápido, cambios bruscos de posición</li>
-                </ol>
-            </div>
+                        <div class="recursos-utiles">
+                            <h5>📞 Líneas de Apoyo Gratuitas</h5>
+                            <ul>
+                                <li><strong>Línea de Prevención del Suicidio:</strong> 135 (gratuito)</li>
+                                <li><strong>Contención Crisis Ansiedad:</strong> 137</li>
+                                <li><strong>Hospitales públicos:</strong> Servicio de salud mental</li>
+                                <li><strong>Centros de salud:</strong> Psicología gratuita</li>
+                            </ul>
+                        </div>
 
-            <div class="alerta-urgente">
-                <h5>🚨 SEÑALES DE EMERGENCIA - IR INMEDIATAMENTE A GUARDIA:</h5>
-                <ul>
-                    <li>Dolor de cabeza intenso y súbito</li>
-                    <li>Visión borrosa o manchas en la vista</li>
-                    <li>Dolor en el pecho o dificultad para respirar</li>
-                    <li>Confusión o dificultad para hablar</li>
-                    <li>Presión mayor a 180/120 mmHg</li>
-                </ul>
-            </div>
-
-            <div class="tip-supervivencia">
-                <p>💡 <strong>Monitoreo casero:</strong> Si tenés presión alta, anotá tus valores en una libreta para mostrarle al médico. Incluí hora, valor y qué estabas haciendo.</p>
-            </div>
-        </div>
-    </div>
-</div>
-                            <div class="recursos-utiles">
-                                <h5>🏥 Control gratuito:</h5>
-                                <p>En cualquier farmacia o centro de salud. No necesitás turno.</p>
-                            </div>
+                        <div class="tip-supervivencia">
+                            <p>💜 <strong>Pedir ayuda es fortaleza:</strong> No tenés que esperar a estar "muy mal" para buscar apoyo. La prevención es clave.</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- INFARTO - SEÑALES DIFERENTES -->
-                <div class="acordeon-salud">
-                    <div class="acordeon-item emergencia">
-                        <div class="acordeon-header">
-                            <h3><span>💔</span> Señales de Infarto (Hombres vs Mujeres)</h3>
-                            <span class="acordeon-icon">▼</span>
+            <!-- 2. DERECHOS EN SALUD -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item derechos">
+                    <div class="acordeon-header">
+                        <h3><span>🤝</span> Acompañamiento en IVE/ILE</h3>
+                        <span class="acordeon-icon">▼</span>
+                    </div>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>Derecho a decidir. Acompañamiento sin juicios, información segura y acceso garantizado.</p>
                         </div>
-                        <div class="acordeon-content">
-                            <div class="definicion-rapida">
-                                <p>El infarto no se ve igual en todos los cuerpos. Conocer las diferencias puede salvar vidas.</p>
-                            </div>
-                            
-                            <div class="pasos-salud">
-                                <h5>👨 Señales CLÁSICAS (más comunes en hombres):</h5>
-                                <ul>
-                                    <li>Dolor opresivo en el pecho</li>
-                                    <li>Dolor que irradia a brazo izquierdo</li>
-                                    <li>Sudoración fría y profusa</li>
-                                    <li>Falta de aire abrupta</li>
-                                </ul>
-                            </div>
+                        
+                        <div class="pasos-salud">
+                            <h5>📞 Protocolo de Acompañamiento:</h5>
+                            <ol>
+                                <li><strong>Línea IVE Nacional:</strong> 0800-222-3444 (Gratuita)</li>
+                                <li><strong>Derecho a la objeción:</strong> Si un profesional se niega, deben derivarte</li>
+                                <li><strong>Confidencialidad:</strong> Tu decisión es privada</li>
+                                <li><strong>Acompañamiento:</strong> Podés ir con persona de confianza</li>
+                            </ol>
+                        </div>
 
-                            <div class="pasos-salud">
-                                <h5>👩 Señales ATÍPICAS (más comunes en mujeres):</h5>
-                                <ul>
-                                    <li>Dolor en la espalda alta o mandíbula</li>
-                                    <li>Náuseas o vómitos sin causa aparente</li>
-                                    <li>Cansancio extremo SÚBITO</li>
-                                    <li>Ansiedad inexplicable</li>
-                                </ul>
-                            </div>
+                        <div class="recursos-utiles">
+                            <h5>🔗 Recursos de Acompañamiento Especializado:</h5>
+                            <ul>
+                                <li><strong>Línea IVE Nacional:</strong> 0800-222-3444 (Gratuita, 24/7)</li>
+                                <li><strong>Socorristas en Red:</strong> <a href="https://socorristasenred.org/" target="_blank" style="color: #FF6B6B; font-weight: 600;">socorristasenred.org</a></li>
+                                <li><strong>Centros de salud y hospitales públicos:</strong> Derecho a atención gratuita</li>
+                                <li><strong>Consejerías pre y post aborto:</strong> Acompañamiento integral</li>
+                            </ul>
+                        </div>
 
-                            <div class="alerta-urgente">
-                                <h5>🚨 PROTOCOLO DE EMERGENCIA:</h5>
-                                <ol>
-                                    <li>LLAMÁ AL 107/911 INMEDIATAMENTE</li>
-                                    <li>DECÍ "POSIBLE INFARTO"</li>
-                                    <li>QUEDATE SENTADO/A, NO te acuestes</li>
-                                    <li>MASTICÁ 1 ASPIRINA (si no sos alérgico)</li>
-                                </ol>
-                            </div>
+                        <div class="mitos-realidades">
+                            <h5>🚫 Mitos vs. Realidades:</h5>
+                            <ul>
+                                <li><strong>Mito:</strong> "Necesitás autorización judicial" → <strong>Realidad:</strong> Solo tu consentimiento</li>
+                                <li><strong>Mito:</strong> "Es peligroso" → <strong>Realidad:</strong> Con profesionales es seguro</li>
+                                <li><strong>Mito:</strong> "Te van a juzgar" → <strong>Realidad:</strong> Derecho a trato respetuoso</li>
+                            </ul>
+                        </div>
 
-                            <button class="btn-emergencia" onclick="llamarEmergencias()">
-                                🚨 Práctica de Llamada de Emergencia
-                            </button>
+                        <button class="btn-salud" onclick="mostrarRecursosIVE()">
+                            📞 Ver Recursos de Acompañamiento
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. MOVIMIENTO ACCESIBLE -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item fisica">
+                    <div class="acordeon-header">
+                        <h3><span>💪</span> Movimiento Accesible para Todos los Cuerpos</h3>
+                        <span class="acordeon-icon">▼</span>
+                    </div>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>Moverse según tus posibilidades, no según estándares imposibles. Cada cuerpo es diferente y merece movimiento que sume, no que castigue.</p>
+                        </div>
+                        
+                        <div class="pasos-salud">
+                            <h5>🎯 Movimiento Según Tu Realidad</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                                <div style="background: var(--color-surface); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                                    <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🪑 Movimiento Sentado</h6>
+                                    <ul style="font-size: 0.95rem;">
+                                        <li>Estiramientos de brazos y cuello</li>
+                                        <li>Rotaciones de tobillos y muñecas</li>
+                                        <li>Respiración diafragmática consciente</li>
+                                        <li>Mini-ejercicios con bandas elásticas</li>
+                                    </ul>
+                                </div>
+                                <div style="background: var(--color-surface); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #4ECDC4;">
+                                    <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">🚶 Movimiento Suave</h6>
+                                    <ul style="font-size: 0.95rem;">
+                                        <li>Caminatas lentas conscientes</li>
+                                        <li>Yoga en silla o adaptado</li>
+                                        <li>Estiramientos de 5 minutos</li>
+                                        <li>Tai Chi básico</li>
+                                    </ul>
+                                </div>
+                                <div style="background: var(--color-surface); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #FF6B6B;">
+                                    <h6 style="color: var(--color-primary); margin-bottom: 0.8rem;">⚡ Movimiento Energético</h6>
+                                    <ul style="font-size: 0.95rem;">
+                                        <li>Bailar en casa sin juicios</li>
+                                        <li>Saltos suaves o saltar la soga</li>
+                                        <li>Rutinas de 10-15 minutos</li>
+                                        <li>Deportes que te hagan feliz</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-supervivencia">
+                            <p>💡 <strong>Recordá:</strong> El movimiento es para sentirte mejor, no para cumplir estándares. 5 minutos de baile en tu habitación cuenta. Estirarte en la cama cuenta. Caminar hasta la esquina cuenta.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- CHEQUEOS PERIÓDICOS -->
-              <div class="acordeon-salud">
-    <div class="acordeon-item prevencion">
-        <div class="acordeon-header">
-            <h3><span>🩺</span> Chequeos de Salud Periódicos</h3>
-            <span class="acordeon-icon">▼</span>
-        </div>
-        <div class="acordeon-content">
-            <div class="definicion-rapida">
-                <p>Prevenir es más fácil que curar. Control gratuito en hospitales públicos y acceso a tus derechos de salud.</p>
-            </div>
-            
-            <div class="pasos-salud">
-                <h5>🎯 Chequeos por Edad y Género</h5>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                    <div>
-                        <h6>👶 18-29 años</h6>
-                        <ul>
-                            <li><strong>Anual:</strong> Presión arterial, peso, análisis sangre básico</li>
-                            <li><strong>Mujeres:</strong> Papanicolau cada 3 años (gratuito en centros de salud)</li>
-                            <li><strong>Hombres:</strong> Autoexamen testicular mensual</li>
-                            <li><strong>Todos:</strong> Control dental anual, visión cada 2 años</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h6>👨‍💼 30-39 años</h6>
-                        <ul>
-                            <li><strong>Todo lo anterior +</strong></li>
-                            <li><strong>Anual:</strong> Perfil lipídico (colesterol, triglicéridos)</li>
-                            <li><strong>Mujeres:</strong> Ecografía mamaria si hay antecedentes familiares</li>
-                            <li><strong>Hombres:</strong> Control próstata si hay síntomas</li>
-                            <li><strong>Todos:</strong> Glucemia (azúcar en sangre) anual</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h6>👴 40+ años</h6>
-                        <ul>
-                            <li><strong>Todo lo anterior +</strong></li>
-                            <li><strong>Anual:</strong> Electrocardiograma, control cardiovascular</li>
-                            <li><strong>Mujeres:</strong> Mamografía anual, densitometría ósea</li>
-                            <li><strong>Hombres:</strong> Control próstata anual, colonoscopía a los 50</li>
-                            <li><strong>Todos:</strong> Control tiroides, función renal</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
 
-            <div class="pasos-salud">
-                <h5>🏥 Cómo Acceder a Chequeos Gratuitos</h5>
-                <ol>
-                    <li><strong>Centro de Salud más cercano:</strong> Pedir turno para "control de salud general"</li>
-                    <li><strong>Hospitales públicos:</strong> Servicios de clínica médica - no necesitás obra social</li>
-                    <li><strong>Campañas de prevención:</strong> Municipios organizan operativos sanitarios gratuitos</li>
-                    <li><strong>Derecho a la salud:</strong> Por ley, tenés derecho a atención básica gratuita</li>
-                    <li><strong>Si te niegan atención:</strong> Pedí el libro de quejas o comunicate con defensa del consumidor</li>
-                </ol>
-            </div>
-
-            <div class="pasos-salud">
-                <h5>📝 Preparación para Tus Chequeos</h5>
-                <ul>
-                    <li><strong>Lista de síntomas:</strong> Anotá todo lo que sentís, por más pequeño que sea</li>
-                    <li><strong>Historial familiar:</strong> Saber las enfermedades de padres/abuelos</li>
-                    <li><strong>Medicamentos actuales:</strong> Llevá lista de lo que tomás (incluyendo vitaminas)</li>
-                    <li><strong>Preguntas preparadas:</strong> No te vayas con dudas - anotalas antes</li>
-                    <li><strong>Ayuno:</strong> 8-12 horas para análisis de sangre (confirmar con el centro)</li>
-                </ul>
-            </div>
-
-            <div class="tip-supervivencia">
-                <h5>💡 Chequeos Específicos por Condición</h5>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                    <div>
-                        <strong>🩸 Si tenés anemia:</strong>
-                        <ul>
-                            <li>Hemograma completo cada 6 meses</li>
-                            <li>Ferritina y hierro sérico</li>
-                            <li>Control con clínico/nutricionista</li>
-                        </ul>
+            <!-- 4. PRESIÓN ARTERIAL -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item emergencia">
+                    <div class="acordeon-header">
+                        <h3><span>💓</span> Presión Arterial - Primeros Auxilios</h3>
+                        <span class="acordeon-icon">▼</span>
                     </div>
-                    <div>
-                        <strong>🦋 Si tenés tiroides:</strong>
-                        <ul>
-                            <li>TSH, T3, T4 cada 6-12 meses</li>
-                            <li>Ecografía tiroidea anual</li>
-                            <li>Control con endocrinólogo</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <strong>💓 Si tenés presión:</strong>
-                        <ul>
-                            <li>Control presión 2-3 veces por semana</li>
-                            <li>Electro anual</li>
-                            <li>Perfil lipídico cada 6 meses</li>
-                        </ul>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>Qué hacer EN ESTE MOMENTO si tu presión se dispara o cae en picada. Acciones inmediatas mientras llegás al médico.</p>
+                        </div>
+                        
+                        <div class="pasos-salud">
+                            <h5>🚨 PRESIÓN ALTA (Hipertensión) - Protocolo Inmediato</h5>
+                            <ol>
+                                <li><strong>POSICIÓN:</strong> Sentate o recostate inmediatamente, piernas ligeramente elevadas</li>
+                                <li><strong>RESPIRACIÓN:</strong> Respiración 4-7-8 (inhalar 4 seg, mantener 7, exhalar 8)</li>
+                                <li><strong>AMBIENTE:</strong> Silencio, luz tenue, alejate de pantallas y ruidos</li>
+                                <li><strong>HIDRATACIÓN:</strong> Pequeños sorbos de agua fría, sin beber mucho de golpe</li>
+                                <li><strong>NO AUTOMEDICARSE:</strong> No tomes medicamentos de otras personas</li>
+                            </ol>
+                        </div>
+
+                        <div class="pasos-salud">
+                            <h5>😵 PRESIÓN BAJA (Hipotensión) - Protocolo Inmediato</h5>
+                            <ol>
+                                <li><strong>POSICIÓN:</strong> Acostate con las piernas elevadas por encima del corazón</li>
+                                <li><strong>HIDRATACIÓN:</strong> Bebé agua con una pizca de sal o suero oral</li>
+                                <li><strong>ALIMENTACIÓN:</strong> Come algo salado (galletitas, pan) si podés</li>
+                                <li><strong>MOVIMIENTO:</strong> Mové pies y manos en círculos para activar circulación</li>
+                                <li><strong>EVITAR:</strong> No te levantes rápido, cambios bruscos de posición</li>
+                            </ol>
+                        </div>
+
+                        <div class="alerta-urgente">
+                            <h5>🚨 SEÑALES DE EMERGENCIA - IR INMEDIATAMENTE A GUARDIA:</h5>
+                            <ul>
+                                <li>Dolor de cabeza intenso y súbito</li>
+                                <li>Visión borrosa o manchas en la vista</li>
+                                <li>Dolor en el pecho o dificultad para respirar</li>
+                                <li>Confusión o dificultad para hablar</li>
+                                <li>Presión mayor a 180/120 mmHg</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="alerta-practica">
-                <h5>📅 Recordatorios Prácticos</h5>
-                <p><strong>En tu teléfono:</strong> Programá recordatorios anuales<br>
-                <strong>En el calendario:</strong> Marcá tus próximos controles<br>
-                <strong>Con tu cumpleaños:</strong> "Para mi cumpleaños me hago mis chequeos"<br>
-                <strong>En grupo:</strong> Ir con amigo/a para hacerse compañía</p>
+            <!-- 5. SEÑALES DE INFARTO -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item emergencia">
+                    <div class="acordeon-header">
+                        <h3><span>💔</span> Señales de Infarto (Hombres vs Mujeres)</h3>
+                        <span class="acordeon-icon">▼</span>
+                    </div>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>El infarto no se ve igual en todos los cuerpos. Conocer las diferencias puede salvar vidas.</p>
+                        </div>
+                        
+                        <div class="pasos-salud">
+                            <h5>👨 Señales CLÁSICAS (más comunes en hombres):</h5>
+                            <ul>
+                                <li>Dolor opresivo en el pecho</li>
+                                <li>Dolor que irradia a brazo izquierdo</li>
+                                <li>Sudoración fría y profusa</li>
+                                <li>Falta de aire abrupta</li>
+                            </ul>
+                        </div>
+
+                        <div class="pasos-salud">
+                            <h5>👩 Señales ATÍPICAS (más comunes en mujeres):</h5>
+                            <ul>
+                                <li>Dolor en la espalda alta o mandíbula</li>
+                                <li>Náuseas o vómitos sin causa aparente</li>
+                                <li>Cansancio extremo SÚBITO</li>
+                                <li>Ansiedad inexplicable</li>
+                            </ul>
+                        </div>
+
+                        <div class="alerta-urgente">
+                            <h5>🚨 PROTOCOLO DE EMERGENCIA:</h5>
+                            <ol>
+                                <li>LLAMÁ AL 107/911 INMEDIATAMENTE</li>
+                                <li>DECÍ "POSIBLE INFARTO"</li>
+                                <li>QUEDATE SENTADO/A, NO te acuestes</li>
+                                <li>MASTICÁ 1 ASPIRINA (si no sos alérgico)</li>
+                            </ol>
+                        </div>
+
+                        <button class="btn-emergencia" onclick="llamarEmergencias()">
+                            🚨 Práctica de Llamada de Emergencia
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <button class="btn-salud" onclick="mostrarRecordatorioChequeos()">
-                📅 Crear Mi Calendario de Chequeos
-            </button>
+            <!-- 6. CHEQUEOS PERIÓDICOS -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item prevencion">
+                    <div class="acordeon-header">
+                        <h3><span>🩺</span> Chequeos de Salud Periódicos</h3>
+                        <span class="acordeon-icon">▼</span>
+                    </div>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>Prevenir es más fácil que curar. Control gratuito en hospitales públicos y acceso a tus derechos de salud.</p>
+                        </div>
+                        
+                        <div class="pasos-salud">
+                            <h5>🎯 Chequeos por Edad y Género</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                                <div>
+                                    <h6>👶 18-29 años</h6>
+                                    <ul>
+                                        <li><strong>Anual:</strong> Presión arterial, peso, análisis sangre básico</li>
+                                        <li><strong>Mujeres:</strong> Papanicolau cada 3 años</li>
+                                        <li><strong>Hombres:</strong> Autoexamen testicular mensual</li>
+                                        <li><strong>Todos:</strong> Control dental anual, visión cada 2 años</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>👨‍💼 30-39 años</h6>
+                                    <ul>
+                                        <li><strong>Todo lo anterior +</strong></li>
+                                        <li><strong>Anual:</strong> Perfil lipídico (colesterol)</li>
+                                        <li><strong>Mujeres:</strong> Ecografía mamaria si hay antecedentes</li>
+                                        <li><strong>Todos:</strong> Glucemia (azúcar en sangre) anual</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>👴 40+ años</h6>
+                                    <ul>
+                                        <li><strong>Todo lo anterior +</strong></li>
+                                        <li><strong>Anual:</strong> Electrocardiograma</li>
+                                        <li><strong>Mujeres:</strong> Mamografía anual</li>
+                                        <li><strong>Hombres:</strong> Control próstata anual</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pasos-salud">
+                            <h5>🏥 Cómo Acceder a Chequeos Gratuitos</h5>
+                            <ol>
+                                <li><strong>Centro de Salud más cercano:</strong> Pedir turno para "control de salud general"</li>
+                                <li><strong>Hospitales públicos:</strong> Servicios de clínica médica</li>
+                                <li><strong>Campañas de prevención:</strong> Municipios organizan operativos gratuitos</li>
+                                <li><strong>Derecho a la salud:</strong> Por ley, tenés derecho a atención básica gratuita</li>
+                            </ol>
+                        </div>
+
+                        <button class="btn-salud" onclick="mostrarRecordatorioChequeos()">
+                            📅 Crear Mi Calendario de Chequeos
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. CONDICIONES CRÓNICAS (NUEVA SECCIÓN) -->
+            <div class="acordeon-salud">
+                <div class="acordeon-item condiciones">
+                    <div class="acordeon-header">
+                        <h3><span>🩺</span> Condiciones Crónicas y Específicas</h3>
+                        <span class="acordeon-icon">▼</span>
+                    </div>
+                    <div class="acordeon-content">
+                        <div class="definicion-rapida">
+                            <p>Cuidados específicos para condiciones particulares. Información accesible para manejar tu salud día a día.</p>
+                        </div>
+
+                        <!-- DIABETES -->
+                        <div class="pasos-salud">
+                            <h5>🩸 Diabetes - Manejo Diario</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                                <div>
+                                    <h6>📊 Monitoreo</h6>
+                                    <ul>
+                                        <li><strong>Glucosa en ayunas:</strong> 80-130 mg/dL</li>
+                                        <li><strong>Después de comer:</strong> Menos de 180 mg/dL</li>
+                                        <li><strong>Hemoglobina glicosilada:</strong> Cada 3 meses</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>🚨 Señales de Alerta</h6>
+                                    <ul>
+                                        <li><strong>Hipoglucemia (baja):</strong> Temblor, sudor, confusión</li>
+                                        <li><strong>Hiperglucemia (alta):</strong> Sed excesiva, orina frecuente</li>
+                                        <li><strong>Emergencia:</strong> Dificultad para respirar, vómitos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TIROIDES -->
+                        <div class="pasos-salud">
+                            <h5>🦋 Tiroides - Seguimiento</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                                <div>
+                                    <h6>📈 Hipotiroidismo</h6>
+                                    <ul>
+                                        <li><strong>Control TSH:</strong> Cada 6-12 meses</li>
+                                        <li><strong>Síntomas:</strong> Cansancio, frío, aumento de peso</li>
+                                        <li><strong>Tratamiento:</strong> Levotiroxina en ayunas</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>📉 Hipertiroidismo</h6>
+                                    <ul>
+                                        <li><strong>Control TSH:</strong> Cada 3-6 meses</li>
+                                        <li><strong>Síntomas:</strong> Ansiedad, calor, pérdida de peso</li>
+                                        <li><strong>Cuidado:</strong> Palpitaciones, temblores</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ANEMIA -->
+                        <div class="pasos-salud">
+                            <h5>🔴 Anemia - Recuperación</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                                <div>
+                                    <h6>💊 Alimentos con Hierro</h6>
+                                    <ul>
+                                        <li><strong>Animal (se absorbe mejor):</strong> Carnes rojas, hígado</li>
+                                        <li><strong>Vegetal:</strong> Lentejas, espinacas, frutos secos</li>
+                                        <li><strong>Con vitamina C:</strong> Ayuda a absorber el hierro</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>🩸 Controles</h6>
+                                    <ul>
+                                        <li><strong>Hemograma completo:</strong> Cada 3-6 meses</li>
+                                        <li><strong>Ferritina:</strong> Para ver reservas de hierro</li>
+                                        <li><strong>Seguimiento:</strong> Hasta normalizar valores</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HIPERTENSIÓN -->
+                        <div class="pasos-salud">
+                            <h5>💓 Hipertensión - Control Continuo</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                                <div>
+                                    <h6>📋 Monitoreo en Casa</h6>
+                                    <ul>
+                                        <li><strong>Frecuencia:</strong> 2-3 veces por semana</li>
+                                        <li><strong>Horario:</strong> Mismo horario siempre</li>
+                                        <li><strong>Registro:</strong> Anotar valores y horarios</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>🥗 Manejo Diario</h6>
+                                    <ul>
+                                        <li><strong>Sal:</strong> Menos de 5g por día</li>
+                                        <li><strong>Potasio:</strong> Plátano, palta, espinacas</li>
+                                        <li><strong>Ejercicio:</strong> 30 min diarios moderados</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MIGRAÑA -->
+                        <div class="pasos-salud">
+                            <h5>🧠 Migraña - Manejo de Crisis</h5>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                                <div>
+                                    <h6>🚨 Durante la Crisis</h6>
+                                    <ul>
+                                        <li><strong>Lugar:</strong> Oscuro, silencioso, fresco</li>
+                                        <li><strong>Compresas:</strong> Frías en frente/nuca</li>
+                                        <li><strong>Hidratación:</strong> Pequeños sorbos de agua</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h6>🔍 Identificar Disparadores</h6>
+                                    <ul>
+                                        <li><strong>Alimentación:</strong> Chocolate, quesos, vino</li>
+                                        <li><strong>Ambiente:</strong> Luces brillantes, ruidos fuertes</li>
+                                        <li><strong>Estrés:</strong> Ciclo de estrés-relajación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-supervivencia">
+                            <p>💡 <strong>Recordá:</strong> Estas son guías generales. Siempre consultá con tu médico para un plan personalizado según tu condición específica.</p>
+                        </div>
+
+                        <button class="btn-salud" onclick="mostrarDiarioSalud()">
+                            📓 Descargar Diario de Salud
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</div>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -805,14 +852,6 @@
             alert('🤝 Recursos de acompañamiento en IVE:\n\n📞 Línea IVE Nacional: 0800-222-3444\n🏥 Centros de salud y hospitales públicos\n💚 Acompañantes feministas locales\n📋 Derecho a información completa y segura');
         }
 
-        function buscarCentrosSalud() {
-            alert('🏥 Para encontrar tu centro de salud más cercano:\n\n1. Googleá "centro de salud" + tu barrio\n2. Consultá en la municipalidad\n3. Llamá al 107 (CABA) o número local de salud');
-        }
-
-        function buscarEndocrinologoGratuito() {
-            alert('👨‍⚕️ Endocrinólogo gratuito:\n\n1. Hospitales generales tienen servicio de endocrinología\n2. Pedir derivación en centro de salud\n3. Espera: 1-3 meses, pero la consulta es gratuita');
-        }
-
         function llamarEmergencias() {
             const practica = confirm('¿Querés practicar QUÉ DECIR en una llamada de emergencia por posible infarto?\n\n(Esto es solo una práctica)');
             
@@ -827,6 +866,16 @@
 
         function mostrarRecordatorioChequeos() {
             alert('📅 Recordatorio de chequeos esenciales:\n\n🩺 Presión arterial: Cada 6 meses\n🦋 Tiroides: Si tenés síntomas\n🩸 Anemia: Anual si tenés señales\n💓 Corazón: Electro anual después de los 40');
+        }
+
+        function mostrarDiarioSalud() {
+            alert('📓 Ejemplo de Diario de Salud:\n\n' +
+                  '📅 Fecha: [Tu fecha]\n' +
+                  '🤒 Síntomas: [Qué sentiste]\n' +
+                  '📊 Intensidad (1-10): [Número]\n' +
+                  '🔍 Posibles disparadores: [Comida, estrés, sueño]\n' +
+                  '💡 Qué ayudó: [Descanso, medicación, etc.]\n\n' +
+                  'Podés usar una libreta o notas del teléfono para llevar tu registro personal.');
         }
     </script>
 </body>
