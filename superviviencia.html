@@ -75,76 +75,103 @@
         font-weight: 500;
     }
 
-    /* PILARES MEJORADOS - 2x2 */
+   .pilares-supervivencia {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.pilar {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.pilar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+}
+
+.pilar:hover::before {
+    left: 100%;
+}
+
+.pilar:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pilar .emoji {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.pilar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.pilar p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.pilar small {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+/* RESPONSIVE - Se adapta según el tamaño */
+@media (max-width: 1200px) {
     .pilares-supervivencia {
-        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pilares-supervivencia {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        margin-top: 2.5rem;
-        position: relative;
-        z-index: 2;
+        gap: 1rem;
     }
+}
 
+@media (max-width: 480px) {
+    .pilares-supervivencia {
+        grid-template-columns: 1fr;
+    }
+    
     .pilar {
-        text-align: center;
-        padding: 2.5rem 2rem;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        position: relative;
-        overflow: hidden;
+        padding: 1.5rem 1rem;
     }
-
-    .pilar::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: left 0.6s;
-    }
-
-    .pilar:hover::before {
-        left: 100%;
-    }
-
-    .pilar:hover {
-        transform: translateY(-8px) scale(1.02);
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    }
-
+    
     .pilar .emoji {
-        font-size: 3.5rem;
-        display: block;
-        margin-bottom: 1.5rem;
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        font-size: 2.5rem;
     }
-
-    .pilar h3 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .pilar p {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-        opacity: 0.9;
-        line-height: 1.5;
-    }
-
-    .pilar small {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        font-weight: 500;
-    }
-
+}
     /* SECCIONES DESPLEGABLES MEJORADAS */
     .seccion-desplegable {
         background: var(--color-surface);
