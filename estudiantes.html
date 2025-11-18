@@ -86,6 +86,7 @@
         .acordeon-item.carrera { border-left-color: #06D6A0; }
         .acordeon-item.conexion { border-left-color: #118AB2; }
         .acordeon-item.impostor { border-left-color: #073B4C; }
+        .acordeon-item.pre-examen { border-left-color: #667eea; }
 
         .acordeon-header {
             padding: 2rem;
@@ -332,7 +333,7 @@
 
             <div class="estudiantes-container">
 
-                <!-- 1. TÉCNICAS ESPECÍFICAS -->
+                <!-- 1. TÉCNICAS ESPECÍFICAS (NUEVO) -->
                 <div class="acordeon-estudiantes">
                     <div class="acordeon-item tecnicas">
                         <div class="acordeon-header">
@@ -395,7 +396,7 @@
                     </div>
                 </div>
 
-                <!-- 2. PLANES DE ESTUDIO -->
+                <!-- 2. PLANES DE ESTUDIO (NUEVO) -->
                 <div class="acordeon-estudiantes">
                     <div class="acordeon-item planes">
                         <div class="acordeon-header">
@@ -472,11 +473,11 @@
                     </div>
                 </div>
 
-                <!-- 3. ANSIEDAD POR EXÁMENES -->
+                <!-- 3. ANSIEDAD PRE-EXAMEN (ORIGINAL) -->
                 <div class="acordeon-estudiantes">
-                    <div class="acordeon-item ansiedad">
+                    <div class="acordeon-item pre-examen">
                         <div class="acordeon-header">
-                            <h3><span>💓</span> Manejo de Ansiedad por Exámenes</h3>
+                            <h3><span>📝</span> Descomprimir Ansiedad Pre-Examen</h3>
                             <span class="acordeon-icon">▼</span>
                         </div>
                         <div class="acordeon-content">
@@ -484,6 +485,53 @@
                                 <p>Cuando el "y si fallo" se vuelve un loop en la cabeza y el pánico paraliza antes del examen.</p>
                             </div>
                             
+                            <div class="pasos-estudiante">
+                                <h4>🆘 Protocolo Rápido:</h4>
+                                <ol>
+                                    <li><strong>Reconocer el patrón:</strong> "Esto es ansiedad de rendimiento, no realidad"</li>
+                                    <li><strong>Técnica del peor caso:</strong> "¿Y si desapruebo? Sobreviviría. Hay recursadas."</li>
+                                    <li><strong>Grounding académico:</strong> "Sé [concepto clave]. Aprobé [materia anterior]."</li>
+                                    <li><strong>Respiración táctica:</strong> 4-7-8 (inhalar 4, mantener 7, exhalar 8)</li>
+                                    <li><strong>Anclaje físico:</strong> Presionar pulgar e índice mientras se respira</li>
+                                </ol>
+                            </div>
+
+                            <div class="pasos-estudiante">
+                                <h4>🎯 Técnica "Examen de Práctica Mental":</h4>
+                                <ol>
+                                    <li>Imaginar entrando al aula tranquilo</li>
+                                    <li>Visualizar resolviendo la primera pregunta con calma</li>
+                                    <li>Recordar un momento que sí se pudo con algo difícil</li>
+                                    <li>Crear un mantra: "Preparé lo que pude. Haré mi mejor esfuerzo."</li>
+                                </ol>
+                            </div>
+
+                            <div class="no-funciona">
+                                <h4>🚫 Lo que NO sirve para ansiedad de examen:</h4>
+                                <ul>
+                                    <li>Repasar compulsivamente 5 minutos antes</li>
+                                    <li>Compararse con compañeros que "sí saben"</li>
+                                    <li>Tomar estimulantes en exceso</li>
+                                    <li>Castigarse por "no haber estudiado más"</li>
+                                    <li>Privarse de dormir</li>
+                                </ul>
+                            </div>
+
+                            <button class="btn-estudiante" onclick="iniciarTecnica('ansiedad-examen')">
+                                🌀 Ejercicio de 5 minutos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ANSIEDAD POR EXÁMENES (NUEVO) -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item ansiedad">
+                        <div class="acordeon-header">
+                            <h3><span>💓</span> Manejo de Ansiedad por Exámenes</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
                             <div class="pasos-estudiante">
                                 <h4>🆘 Protocolo para Crisis de Ansiedad Pre-Examen</h4>
                                 <ol>
@@ -513,7 +561,7 @@
                     </div>
                 </div>
 
-                <!-- 4. AGOTAMIENTO ACADÉMICO -->
+                <!-- 5. AGOTAMIENTO ACADÉMICO (ORIGINAL) -->
                 <div class="acordeon-estudiantes">
                     <div class="acordeon-item agotamiento">
                         <div class="acordeon-header">
@@ -536,8 +584,18 @@
                                 </ol>
                             </div>
 
+                            <div class="pasos-estudiante">
+                                <h4>🎯 Técnica "Pomodoro Emocional":</h4>
+                                <ol>
+                                    <li>25 minutos de estudio FOCALIZADO</li>
+                                    <li>5 minutos de descanso COMPLETO (sin culpa)</li>
+                                    <li>Después de 4 ciclos: descanso largo de 20-30 minutos</li>
+                                    <li>En descansos: movimiento, hidratación, NO pantallas</li>
+                                </ol>
+                            </div>
+
                             <div class="tip-estudiante">
-                                <p>💡 <strong>Recordá:</strong> El agotamiento estudiantil suele ser sobrecarga sensorial + cognitiva. Probar estudiar con ruido marrón o en espacios con menos estímulos visuales.</p>
+                                <p>💡 <strong>Tip neurodivergente:</strong> El agotamiento estudiantil suele ser sobrecarga sensorial + cognitiva. Probar estudiar con ruido marrón o en espacios con menos estímulos visuales.</p>
                             </div>
 
                             <button class="btn-estudiante" onclick="iniciarTecnica('reset-agotamiento')">
@@ -547,16 +605,16 @@
                     </div>
                 </div>
 
-                <!-- 5. PROCRASTINACIÓN -->
+                <!-- 6. PROCRASTINACIÓN TDAH (ORIGINAL) -->
                 <div class="acordeon-estudiantes">
                     <div class="acordeon-item procrastinacion">
                         <div class="acordeon-header">
-                            <h3><span>⏰</span> Motor de Arranque para la Procrastinación</h3>
+                            <h3><span>⏰</span> Motor de Arranque para TDAH</h3>
                             <span class="acordeon-icon">▼</span>
                         </div>
                         <div class="acordeon-content">
                             <div class="contexto-problema">
-                                <p>Cuando cuesta empezar y se pasa más tiempo preocupándose por estudiar que estudiando.</p>
+                                <p>Específico para cerebros neurodivergentes que se traban. No es falta de voluntad, es dificultad con la activación.</p>
                             </div>
                             
                             <div class="pasos-estudiante">
@@ -564,14 +622,24 @@
                                 <ol>
                                     <li><strong>Tarea microscópica:</strong> "Solo abrir el Word" o "solo leer el título"</li>
                                     <li><strong>Body doubling virtual:</strong> Poner video de "study with me" en YouTube</li>
-                                    <li><strong>Premio inmediato:</strong> "Después de 15 minutos, un pequeño premio"</li>
-                                    <li><strong>Cambio de formato:</strong> ¿Se puede estudiar caminando? ¿Grabando audio?</li>
+                                    <li><strong>Premio inmediato:</strong> "Después de 15 minutos, me como ese chocolate"</li>
+                                    <li><strong>Cambio de formato:</strong> ¿Podés estudiar caminando? ¿Grabando audio?</li>
                                     <li><strong>Tiempo definido:</strong> "Solo 25 minutos, luego PARO"</li>
                                 </ol>
                             </div>
 
+                            <div class="pasos-estudiante">
+                                <h4>🎯 Técnica "Engañar al Cerebro TDAH":</h4>
+                                <ol>
+                                    <li><strong>Desglose extremo:</strong> "Leer párrafo 1" en vez de "estudiar capítulo 3"</li>
+                                    <li><strong>Estímulo paralelo:</strong> Música instrumental, chewing gum, fidget toy</li>
+                                    <li><strong>Carrera contra el tiempo:</strong> Timer visible, competir contra uno mismo</li>
+                                    <li><strong>Alternancia frecuente:</strong> 15 minutos esto, 15 minutos aquello</li>
+                                </ol>
+                            </div>
+
                             <div class="no-funciona">
-                                <h4>🚫 Lo que NO funciona con procrastinación:</h4>
+                                <h4>🚫 Lo que NO funciona con procrastinación TDAH:</h4>
                                 <ul>
                                     <li>"Esforzate más" o "poné voluntad"</li>
                                     <li>Castigarse o regañarse</li>
@@ -587,7 +655,109 @@
                     </div>
                 </div>
 
-                <!-- LAS OTRAS SECCIONES ORIGINALES CONTINÚAN EN ACORDEONES... -->
+                <!-- 7. CRISIS DE CARRERA (ORIGINAL) -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item carrera">
+                        <div class="acordeon-header">
+                            <h3><span>🎯</span> ¿Y ahora qué estudio? - Crisis Existencial</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <div class="contexto-problema">
+                                <p>Cuando todo pierde sentido, se duda de la elección de carrera y se siente que se está perdiendo el tiempo.</p>
+                            </div>
+                            
+                            <div class="pasos-estudiante">
+                                <h4>🧭 Ejercicio de Re-conexión con Valores:</h4>
+                                <ol>
+                                    <li><strong>Separar presión externa:</strong> "¿Esto lo elijo YO o me lo impusieron?"</li>
+                                    <li><strong>Valores vs. títulos:</strong> "¿Quiero ayudar gente? ¿Crear? ¿Resolver problemas?"</li>
+                                    <li><strong>Exploración sin compromiso:</strong> Charlar con profesionales, hacer materias optativas</li>
+                                    <li><strong>Redefinir "éxito":</strong> ¿Felicidad? ¿Estabilidad? ¿Impacto?</li>
+                                    <li><strong>Permiso para cambiar:</strong> Nadie tiene la vida resuelta, siempre se puede encontrar una nueva pasión</li>
+                                </ol>
+                            </div>
+
+                            <div class="tip-estudiante">
+                                <p>💡 <strong>Recordá:</strong> La mayoría de las personas cambia de carrera al menos una vez. No se está "fallando", se está creciendo.</p>
+                            </div>
+
+                            <button class="btn-estudiante" onclick="iniciarTecnica('crisis-carrera')">
+                                🧭 Guía de Exploración
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. AISLAMIENTO ACADÉMICO (ORIGINAL) -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item conexion">
+                        <div class="acordeon-header">
+                            <h3><span>👥</span> Conectando en la Soledad Académica</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <div class="contexto-problema">
+                                <p>Cuando el estudio aísla, se siente que todos tienen su grupo y uno se quedó afuera.</p>
+                            </div>
+                            
+                            <div class="pasos-estudiante">
+                                <h4>🤝 Conexiones de Bajo Esfuerzo:</h4>
+                                <ol>
+                                    <li><strong>Grupos de estudio virtual:</strong> Discord, Zoom con cámaras apagadas</li>
+                                    <li><strong>Comunidades online:</strong> Reddit, grupos de Facebook de tu carrera</li>
+                                    <li><strong>Actividades paralelas:</strong> Deportes, talleres, voluntariado</li>
+                                    <li><strong>Conexión con profes:</strong> Consultas, ayudantías, proyectos</li>
+                                    <li><strong>Amistades "de contexto":</strong> No forzar, dejar fluir</li>
+                                </ol>
+                            </div>
+
+                            <div class="tip-estudiante">
+                                <p>💡 <strong>Para introvertidos/autistas:</strong> La calidad importa más que la cantidad. Un amigo verdadero vale más que 10 conocidos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. SÍNDROME DEL IMPOSTOR (ORIGINAL) -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item impostor">
+                        <div class="acordeon-header">
+                            <h3><span>🎭</span> Desenmascarar al Impostor Académico</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <div class="contexto-problema">
+                                <p>Cuando se siente que no se merece estar donde se está, que fue suerte y que pronto te van a "descubrir".</p>
+                            </div>
+                            
+                            <div class="pasos-estudiante">
+                                <h4>🔍 Ejercicio "Evidencia vs. Sentimiento":</h4>
+                                <ol>
+                                    <li><strong>Listar logros concretos:</strong> "Aprobé X materias", "Gané Y beca"</li>
+                                    <li><strong>Registrar el esfuerzo:</strong> "Estudié Z horas", "Hice W trabajos"</li>
+                                    <li><strong>Preguntar:</strong> "¿La suerte dura 3 años de carrera?"</li>
+                                    <li><strong>Comparar justamente:</strong> Mirar tu camino y compararse con quien eras hace un mes, cada persona tiene su historia</li>
+                                    <li><strong>Reconocer el sesgo:</strong> Recordar que se subestiman los logros</li>
+                                </ol>
+                            </div>
+
+                            <div class="no-funciona">
+                                <h4>🚫 Lo que alimenta al impostor:</h4>
+                                <ul>
+                                    <li>Autodescalificarse cuando te felicitan</li>
+                                    <li>Atribuir éxitos a "suerte" o "facilidad"</li>
+                                    <li>Compararse solo con los "mejores"</li>
+                                    <li>No registrar los progresos</li>
+                                </ul>
+                            </div>
+
+                            <button class="btn-estudiante" onclick="iniciarTecnica('impostor')">
+                                🎭 Ejercicio de 10 minutos
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -650,11 +820,20 @@
         // Funciones específicas
         function iniciarTecnica(tipo) {
             switch(tipo) {
+                case 'ansiedad-examen':
+                    alert('📝 Ejercicio de ansiedad pre-examen: Vamos a practicar respiración táctica y grounding académico...');
+                    break;
                 case 'reset-agotamiento':
                     alert('🔥 Iniciando protocolo de reset: Pará todo, vamos a descansar conscientemente...');
                     break;
                 case 'motor-arranque':
-                    alert('⏰ Activando motor de arranque: Empecemos con una microtarea...');
+                    alert('⏰ Activando motor de arranque TDAH: Empecemos con una microtarea...');
+                    break;
+                case 'crisis-carrera':
+                    alert('🎯 Guía de exploración vocacional: Tomemos 15 minutos para reconectar con tus valores...');
+                    break;
+                case 'impostor':
+                    alert('🎭 Ejercicio contra el síndrome del impostor: Vamos a trabajar con evidencia concreta...');
                     break;
             }
         }
