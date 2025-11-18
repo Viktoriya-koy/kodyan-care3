@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ESTILOS ESPECÍFICOS PARA ESTUDIANTES */
         .herramienta-detalle {
             padding: 8rem 0 4rem;
             min-height: 100vh;
@@ -21,7 +20,7 @@
             padding: 1rem;
         }
 
-        /* BANNER INICIAL ESTUDIANTES */
+        /* BANNER ESTUDIANTES */
         .banner-estudiantes {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -44,8 +43,8 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
             margin-top: 2rem;
         }
 
@@ -54,55 +53,83 @@
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             display: block;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.8;
         }
 
-        /* TÉCNICAS ESTUDIANTES */
-        .tecnica-estudiante {
+        /* SISTEMA DE ACORDEÓN */
+        .acordeon-estudiantes {
+            margin-bottom: 2rem;
+        }
+
+        .acordeon-item {
             background: var(--color-surface);
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            border-radius: 20px;
+            margin-bottom: 1rem;
+            border-radius: 15px;
             box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
             border-left: 4px solid;
+        }
+
+        .acordeon-item.tecnicas { border-left-color: #8A85FF; }
+        .acordeon-item.planes { border-left-color: #FF9E64; }
+        .acordeon-item.ansiedad { border-left-color: #FF6B6B; }
+        .acordeon-item.agotamiento { border-left-color: #4ECDC4; }
+        .acordeon-item.procrastinacion { border-left-color: #FFD166; }
+        .acordeon-item.carrera { border-left-color: #06D6A0; }
+        .acordeon-item.conexion { border-left-color: #118AB2; }
+        .acordeon-item.impostor { border-left-color: #073B4C; }
+
+        .acordeon-header {
+            padding: 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: var(--transition);
         }
 
-        .tecnica-estudiante:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+        .acordeon-header:hover {
+            background: var(--color-secondary);
         }
 
-        /* Colores por tipo de problema estudiantil */
-        .tecnica-estudiante.ansiedad { border-left-color: #FF6B6B; }
-        .tecnica-estudiante.agotamiento { border-left-color: #4ECDC4; }
-        .tecnica-estudiante.procrastinacion { border-left-color: #FFD166; }
-        .tecnica-estudiante.carrera { border-left-color: #06D6A0; }
-        .tecnica-estudiante.conexion { border-left-color: #118AB2; }
-        .tecnica-estudiante.impostor { border-left-color: #073B4C; }
-        .tecnica-estudiante.tecnicas { border-left-color: #8A85FF; }
-        .tecnica-estudiante.planificacion { border-left-color: #FF9E64; }
-
-        .tecnica-estudiante h2 {
-            color: var(--color-text);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+        .acordeon-header h3 {
+            margin: 0;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .tecnica-estudiante h2 .emoji {
-            font-size: 2rem;
+        .acordeon-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
 
+        .acordeon-content {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .acordeon-item.active .acordeon-content {
+            padding: 0 2rem 2rem 2rem;
+            max-height: 5000px;
+        }
+
+        .acordeon-item.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+
+        /* CONTENIDO */
         .contexto-problema {
             background: var(--color-secondary);
             padding: 1.5rem;
@@ -114,7 +141,7 @@
 
         .pasos-estudiante {
             background: var(--color-secondary);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: 15px;
             margin: 1.5rem 0;
         }
@@ -122,7 +149,7 @@
         .pasos-estudiante h4 {
             color: var(--color-primary);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .pasos-estudiante ol, .pasos-estudiante ul {
@@ -152,6 +179,21 @@
             border-radius: 10px;
         }
 
+        .plan-semanal {
+            background: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 2px dashed var(--color-primary);
+        }
+
+        .plan-dia {
+            background: var(--color-secondary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
         .btn-estudiante {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -170,22 +212,6 @@
         .btn-estudiante:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Planes de estudio */
-        .plan-semanal {
-            background: var(--color-surface);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 1.5rem 0;
-            border: 2px dashed var(--color-primary);
-        }
-
-        .plan-dia {
-            background: var(--color-secondary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
         }
 
         /* Números de pasos */
@@ -216,7 +242,13 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .estudiantes-container {
                 padding: 0.5rem;
@@ -231,13 +263,16 @@
                 font-size: 1.8rem;
             }
             
-            .tecnica-estudiante {
-                padding: 1.8rem;
+            .acordeon-header {
+                padding: 1.5rem;
+            }
+            
+            .acordeon-header h3 {
+                font-size: 1.2rem;
             }
             
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -270,7 +305,7 @@
             <h1>🎓 Kit de Supervivencia Estudiantil</h1>
             <p class="subtitulo">Herramientas para cuando el estudio se siente abrumador</p>
 
-            <!-- BANNER ACTUALIZADO -->
+            <!-- BANNER -->
             <div class="banner-estudiantes">
                 <h2>No estás en soledad</h2>
                 <p>La ansiedad académica es común, pero hay formas de manejarla</p>
@@ -297,217 +332,262 @@
 
             <div class="estudiantes-container">
 
-                <!-- NUEVA SECCIÓN: TÉCNICAS ESPECÍFICAS MEJORADAS -->
-                <div class="tecnica-estudiante tecnicas">
-                    <h2><span class="emoji">⚡</span> Técnicas Específicas para Momentos Difíciles</h2>
-                    
-                    <!-- DESGLOSE EXTREMO MEJORADO -->
-                    <div class="pasos-estudiante">
-                        <h4>📋 Desglose Extremo: Cuando Todo Parece Demasiado</h4>
-                        <p><strong>¿Cuándo usarlo?</strong> Cuando una tarea genera tanto pánico que no se sabe por dónde empezar.</p>
-                        
-                        <div class="plan-dia">
-                            <strong>Ejemplo PRÁCTICO:</strong><br>
-                            <em>Tarea original:</em> "Estudiar para el final de Historia"<br>
-                            <em>Desglose extremo:</em><br>
-                            • Abrir carpeta de Historia (2 segundos)<br>
-                            • Leer título del primer tema (5 segundos)<br>
-                            • Subrayar una oración (10 segundos)<br>
-                            • Escribir una palabra clave (3 segundos)<br>
-                            • Respirar y decidir si seguir 30 segundos más
+                <!-- 1. TÉCNICAS ESPECÍFICAS -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item tecnicas">
+                        <div class="acordeon-header">
+                            <h3><span>⚡</span> Técnicas Específicas para Momentos Difíciles</h3>
+                            <span class="acordeon-icon">▼</span>
                         </div>
-                        
-                        <p><strong>La clave:</strong> El primer paso debe ser tan pequeño que sea imposible decir "no puedo".</p>
-                    </div>
+                        <div class="acordeon-content">
+                            <!-- DESGLOSE EXTREMO -->
+                            <div class="pasos-estudiante">
+                                <h4>📋 Desglose Extremo: Cuando Todo Parece Demasiado</h4>
+                                <p><strong>¿Cuándo usarlo?</strong> Cuando una tarea genera tanto pánico que no se sabe por dónde empezar.</p>
+                                
+                                <div class="plan-dia">
+                                    <strong>Ejemplo PRÁCTICO:</strong><br>
+                                    <em>Tarea original:</em> "Estudiar para el final de Historia"<br>
+                                    <em>Desglose extremo:</em><br>
+                                    • Abrir carpeta de Historia (2 segundos)<br>
+                                    • Leer título del primer tema (5 segundos)<br>
+                                    • Subrayar una oración (10 segundos)<br>
+                                    • Escribir una palabra clave (3 segundos)<br>
+                                    • Respirar y decidir si seguir 30 segundos más
+                                </div>
+                                
+                                <p><strong>La clave:</strong> El primer paso debe ser tan pequeño que sea imposible decir "no puedo".</p>
+                            </div>
 
-                    <!-- CARRERA CONTRA EL TIEMPO MEJORADA -->
-                    <div class="pasos-estudiante">
-                        <h4>⏱️ Carrera Contra el Tiempo: Jugar con el Reloj</h4>
-                        <p><strong>¿Cómo funciona?</strong> Convertir el estudio en un juego contra el tiempo, no contra la capacidad personal.</p>
-                        
-                        <div class="plan-dia">
-                            <strong>Ejemplo PRÁCTICO:</strong><br>
-                            "Voy a leer ESTA página en 3 minutos"<br>
-                            • Poner timer de 3 minutos<br>
-                            • Leer lo que se pueda en ese tiempo<br>
-                            • Cuando suena, PARAR aunque no se termine<br>
-                            • Decidir: ¿otros 3 minutos o descanso?
-                        </div>
-                        
-                        <p><strong>La clave:</strong> No es "tengo que entender todo", es "voy a dedicar X tiempo a intentar".</p>
-                    </div>
+                            <!-- CARRERA CONTRA EL TIEMPO -->
+                            <div class="pasos-estudiante">
+                                <h4>⏱️ Carrera Contra el Tiempo: Jugar con el Reloj</h4>
+                                <p><strong>¿Cómo funciona?</strong> Convertir el estudio en un juego contra el tiempo, no contra la capacidad personal.</p>
+                                
+                                <div class="plan-dia">
+                                    <strong>Ejemplo PRÁCTICO:</strong><br>
+                                    "Voy a leer ESTA página en 3 minutos"<br>
+                                    • Poner timer de 3 minutos<br>
+                                    • Leer lo que se pueda en ese tiempo<br>
+                                    • Cuando suena, PARAR aunque no se termine<br>
+                                    • Decidir: ¿otros 3 minutos o descanso?
+                                </div>
+                                
+                                <p><strong>La clave:</strong> No es "tengo que entender todo", es "voy a dedicar X tiempo a intentar".</p>
+                            </div>
 
-                    <!-- PERMISO PARA RETIRARSE MEJORADO -->
-                    <div class="pasos-estudiante">
-                        <h4>🚪 Permiso para Retirarse: La Salida de Emergencia</h4>
-                        <p><strong>¿De qué se trata?</strong> Dar permiso formalmente de abandonar una sesión de estudio cuando realmente no da más.</p>
-                        
-                        <div class="plan-dia">
-                            <strong>Ejemplo PRÁCTICO:</strong><br>
-                            • Después de 15 minutos intentando: "Si en 5 minutos sigo sin poder concentrarme, tengo permiso de parar"<br>
-                            • Parar NO es fracasar, es estrategia<br>
-                            • Anotar dónde se quedó y qué dificultad se encontró<br>
-                            • Programar nuevo intento para otro momento del día
-                        </div>
-                        
-                        <p><strong>La clave:</strong> Mejor 15 minutos productivos que 2 horas de tortura improductiva.</p>
-                    </div>
-                </div>
-
-                <!-- NUEVA SECCIÓN: PLANES DE ESTUDIO POR DÍAS -->
-                <div class="tecnica-estudiante planificacion">
-                    <h2><span class="emoji">📅</span> Planes de Estudio para Parciales y Finales</h2>
-                    
-                    <!-- PLAN 7 DÍAS -->
-                    <div class="plan-semanal">
-                        <h4>🗓️ Plan de 7 Días para un Parcial</h4>
-                        
-                        <div class="plan-dia">
-                            <strong>Día 1 - Reconocimiento:</strong><br>
-                            • Revisar todo el material (15 min)<br>
-                            • Identificar temas fáciles/difíciles<br>
-                            • Hacer resumen de una página<br>
-                            • <em>Tiempo total: 2 horas</em>
-                        </div>
-
-                        <div class="plan-dia">
-                            <strong>Día 2-3 - Estudio Focalizado:</strong><br>
-                            • Estudiar tema más difícil primero<br>
-                            • Hacer ejercicios prácticos<br>
-                            • Crear fichas de repaso<br>
-                            • <em>Tiempo diario: 3 horas (con descansos)</em>
-                        </div>
-
-                        <div class="plan-dia">
-                            <strong>Día 4-5 - Consolidación:</strong><br>
-                            • Repasar todos los temas<br>
-                            • Hacer simulacros de examen<br>
-                            • Identificar puntos débiles<br>
-                            • <em>Tiempo diario: 2.5 horas</em>
-                        </div>
-
-                        <div class="plan-dia">
-                            <strong>Día 6 - Repaso Final:</strong><br>
-                            • Solo revisar fichas y resúmenes<br>
-                            • No aprender contenido nuevo<br>
-                            • Practicar respiración para ansiedad<br>
-                            • <em>Tiempo: 1.5 horas</em>
-                        </div>
-
-                        <div class="plan-dia">
-                            <strong>Día 7 - Examen:</strong><br>
-                            • Desayuno nutritivo<br>
-                            • Llegar 15 minutos antes<br>
-                            • Recordar: "Preparé lo que pude"<br>
-                            • <em>Sin estudio el día del examen</em>
-                        </div>
-                    </div>
-
-                    <!-- PLAN 14 DÍAS -->
-                    <div class="plan-semanal">
-                        <h4>📚 Plan de 14 Días para un Final</h4>
-                        
-                        <div class="plan-dia">
-                            <strong>Semana 1 - Fundamentos:</strong><br>
-                            • Revisar programa completo<br>
-                            • Estudiar temas principales (2-3 por día)<br>
-                            • Hacer resúmenes por tema<br>
-                            • <em>Tiempo diario: 2-3 horas</em>
-                        </div>
-
-                        <div class="plan-dia">
-                            <strong>Semana 2 - Profundización:</strong><br>
-                            • Repasar temas difíciles<br>
-                            • Hacer ejercicios integradores<br>
-                            • Simulacros de examen completos<br>
-                            • <em>Tiempo diario: 3-4 horas</em>
+                            <!-- PERMISO PARA RETIRARSE -->
+                            <div class="pasos-estudiante">
+                                <h4>🚪 Permiso para Retirarse: La Salida de Emergencia</h4>
+                                <p><strong>¿De qué se trata?</strong> Dar permiso formalmente de abandonar una sesión de estudio cuando realmente no da más.</p>
+                                
+                                <div class="plan-dia">
+                                    <strong>Ejemplo PRÁCTICO:</strong><br>
+                                    • Después de 15 minutos intentando: "Si en 5 minutos sigo sin poder concentrarme, tengo permiso de parar"<br>
+                                    • Parar NO es fracasar, es estrategia<br>
+                                    • Anotar dónde se quedó y qué dificultad se encontró<br>
+                                    • Programar nuevo intento para otro momento del día
+                                </div>
+                                
+                                <p><strong>La clave:</strong> Mejor 15 minutos productivos que 2 horas de tortura improductiva.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- NUEVA SECCIÓN: ANSIEDAD POR EXÁMENES -->
-                <div class="tecnica-estudiante ansiedad">
-                    <h2><span class="emoji">💓</span> Manejo de Ansiedad por Exámenes</h2>
-                    
-                    <div class="pasos-estudiante">
-                        <h4>🆘 Protocolo para Crisis de Ansiedad Pre-Examen</h4>
-                        <ol>
-                            <li><strong>Reconocer las señales físicas:</strong> "Esto es ansiedad, no incapacidad"</li>
-                            <li><strong>Técnica de grounding 5-4-3-2-1:</strong> 5 cosas que se ven, 4 que se tocan, 3 que se oyen, 2 que se huelen, 1 que se saborea</li>
-                            <li><strong>Respiración cuadrada:</strong> Inhalar 4 segundos, mantener 4, exhalar 4, pausa 4</li>
-                            <li><strong>Anclaje en logros pasados:</strong> "Ya aprobé X materias antes"</li>
-                            <li><strong>Permiso para sentir:</strong> "Es normal tener miedo, no me define"</li>
-                        </ol>
-                    </div>
+                <!-- 2. PLANES DE ESTUDIO -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item planes">
+                        <div class="acordeon-header">
+                            <h3><span>📅</span> Planes de Estudio para Parciales y Finales</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <!-- PLAN 7 DÍAS -->
+                            <div class="plan-semanal">
+                                <h4>🗓️ Plan de 7 Días para un Parcial</h4>
+                                
+                                <div class="plan-dia">
+                                    <strong>Día 1 - Reconocimiento:</strong><br>
+                                    • Revisar todo el material (15 min)<br>
+                                    • Identificar temas fáciles/difíciles<br>
+                                    • Hacer resumen de una página<br>
+                                    • <em>Tiempo total: 2 horas</em>
+                                </div>
 
-                    <div class="pasos-estudiante">
-                        <h4>🎯 Estrategias para el Día del Examen</h4>
-                        <ul>
-                            <li><strong>Rutina matutina calmada:</strong> No repasar a último momento</li>
-                            <li><strong>Alimentación ligera:</strong> Evitar comidas pesadas o mucha cafeína</li>
-                            <li><strong>Llegar con tiempo:</strong> Pero no demasiado temprano</li>
-                            <li><strong>Objeto de transición:</strong> Algo familiar en el bolsillo (piedra, moneda)</li>
-                            <li><strong>Frases de emergencia:</strong> "Haré mi mejor esfuerzo con lo que sé"</li>
-                        </ul>
-                    </div>
+                                <div class="plan-dia">
+                                    <strong>Día 2-3 - Estudio Focalizado:</strong><br>
+                                    • Estudiar tema más difícil primero<br>
+                                    • Hacer ejercicios prácticos<br>
+                                    • Crear fichas de repaso<br>
+                                    • <em>Tiempo diario: 3 horas (con descansos)</em>
+                                </div>
 
-                    <div class="tip-estudiante">
-                        <p>💡 <strong>Recordá:</strong> La ansiedad es una respuesta normal del cuerpo. No intentes eliminarla completamente, aprendé a manejarla.</p>
-                    </div>
+                                <div class="plan-dia">
+                                    <strong>Día 4-5 - Consolidación:</strong><br>
+                                    • Repasar todos los temas<br>
+                                    • Hacer simulacros de examen<br>
+                                    • Identificar puntos débiles<br>
+                                    • <em>Tiempo diario: 2.5 horas</em>
+                                </div>
 
-                    <button class="btn-estudiante" onclick="iniciarEjercicioAnsiedad()">
-                        🌀 Ejercicio de Respiración para Ansiedad
-                    </button>
+                                <div class="plan-dia">
+                                    <strong>Día 6 - Repaso Final:</strong><br>
+                                    • Solo revisar fichas y resúmenes<br>
+                                    • No aprender contenido nuevo<br>
+                                    • Practicar respiración para ansiedad<br>
+                                    • <em>Tiempo: 1.5 horas</em>
+                                </div>
+
+                                <div class="plan-dia">
+                                    <strong>Día 7 - Examen:</strong><br>
+                                    • Desayuno nutritivo<br>
+                                    • Llegar 15 minutos antes<br>
+                                    • Recordar: "Preparé lo que pude"<br>
+                                    • <em>Sin estudio el día del examen</em>
+                                </div>
+                            </div>
+
+                            <!-- PLAN 14 DÍAS -->
+                            <div class="plan-semanal">
+                                <h4>📚 Plan de 14 Días para un Final</h4>
+                                
+                                <div class="plan-dia">
+                                    <strong>Semana 1 - Fundamentos:</strong><br>
+                                    • Revisar programa completo<br>
+                                    • Estudiar temas principales (2-3 por día)<br>
+                                    • Hacer resúmenes por tema<br>
+                                    • <em>Tiempo diario: 2-3 horas</em>
+                                </div>
+
+                                <div class="plan-dia">
+                                    <strong>Semana 2 - Profundización:</strong><br>
+                                    • Repasar temas difíciles<br>
+                                    • Hacer ejercicios integradores<br>
+                                    • Simulacros de examen completos<br>
+                                    • <em>Tiempo diario: 3-4 horas</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- LAS SECCIONES ORIGINALES SE MANTIENEN (Agotamiento, Procrastinación, etc.) -->
-                <!-- 2. AGOTAMIENTO ACADÉMICO (original) -->
-                <div class="tecnica-estudiante agotamiento">
-                    <h2><span class="emoji">🔥</span> Reset por Agotamiento Extremo</h2>
-                    <div class="contexto-problema">
-                        <p>Para cuando ya no se puede ver un libro más y se siente que el cerebro no da para más.</p>
-                    </div>
-                    
-                    <div class="pasos-estudiante">
-                        <h4>🔄 Protocolo de Reset (30 minutos):</h4>
-                        <ol>
-                            <li><strong>Alarma de descanso:</strong> Parar inmediatamente, aunque "falte poco"</li>
-                            <li><strong>Cambio de ambiente:</strong> Salir de la habitación de estudio</li>
-                            <li><strong>Hidratación con intención:</strong> Beber agua lentamente, conscientemente</li>
-                            <li><strong>Estiramiento de liberación:</strong> 5 minutos de movimientos suaves</li>
-                            <li><strong>Descanso activo:</strong> No mirar pantallas - mejor mirar por la ventana</li>
-                        </ol>
-                    </div>
+                <!-- 3. ANSIEDAD POR EXÁMENES -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item ansiedad">
+                        <div class="acordeon-header">
+                            <h3><span>💓</span> Manejo de Ansiedad por Exámenes</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <div class="contexto-problema">
+                                <p>Cuando el "y si fallo" se vuelve un loop en la cabeza y el pánico paraliza antes del examen.</p>
+                            </div>
+                            
+                            <div class="pasos-estudiante">
+                                <h4>🆘 Protocolo para Crisis de Ansiedad Pre-Examen</h4>
+                                <ol>
+                                    <li><strong>Reconocer las señales físicas:</strong> "Esto es ansiedad, no incapacidad"</li>
+                                    <li><strong>Técnica de grounding 5-4-3-2-1:</strong> 5 cosas que se ven, 4 que se tocan, 3 que se oyen, 2 que se huelen, 1 que se saborea</li>
+                                    <li><strong>Respiración cuadrada:</strong> Inhalar 4 segundos, mantener 4, exhalar 4, pausa 4</li>
+                                    <li><strong>Anclaje en logros pasados:</strong> "Ya se aprobaron materias antes"</li>
+                                    <li><strong>Permiso para sentir:</strong> "Es normal tener miedo, no me define"</li>
+                                </ol>
+                            </div>
 
-                    <button class="btn-estudiante" onclick="iniciarTecnica('reset-agotamiento')">
-                        🔄 Iniciar Reset Guiado
-                    </button>
+                            <div class="pasos-estudiante">
+                                <h4>🎯 Estrategias para el Día del Examen</h4>
+                                <ul>
+                                    <li><strong>Rutina matutina calmada:</strong> No repasar a último momento</li>
+                                    <li><strong>Alimentación ligera:</strong> Evitar comidas pesadas o mucha cafeína</li>
+                                    <li><strong>Llegar con tiempo:</strong> Pero no demasiado temprano</li>
+                                    <li><strong>Objeto de transición:</strong> Algo familiar en el bolsillo (piedra, moneda)</li>
+                                    <li><strong>Frases de emergencia:</strong> "Haré mi mejor esfuerzo con lo que sé"</li>
+                                </ul>
+                            </div>
+
+                            <button class="btn-estudiante" onclick="iniciarEjercicioAnsiedad()">
+                                🌀 Ejercicio de Respiración para Ansiedad
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 3. PROCRASTINACIÓN (original) -->
-                <div class="tecnica-estudiante procrastinacion">
-                    <h2><span class="emoji">⏰</span> Motor de Arranque para la Procrastinación</h2>
-                    <div class="contexto-problema">
-                        <p>Cuando cuesta empezar y se pasa más tiempo preocupándose por estudiar que estudiando.</p>
-                    </div>
-                    
-                    <div class="pasos-estudiante">
-                        <h4>🚀 Protocolo de Activación (5 minutos):</h4>
-                        <ol>
-                            <li><strong>Tarea microscópica:</strong> "Solo abrir el Word" o "solo leer el título"</li>
-                            <li><strong>Body doubling virtual:</strong> Poner video de "study with me" en YouTube</li>
-                            <li><strong>Premio inmediato:</strong> "Después de 15 minutos, un pequeño premio"</li>
-                            <li><strong>Cambio de formato:</strong> ¿Se puede estudiar caminando? ¿Grabando audio?</li>
-                            <li><strong>Tiempo definido:</strong> "Solo 25 minutos, luego PARO"</li>
-                        </ol>
-                    </div>
+                <!-- 4. AGOTAMIENTO ACADÉMICO -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item agotamiento">
+                        <div class="acordeon-header">
+                            <h3><span>🔥</span> Reset por Agotamiento Extremo</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <div class="contexto-problema">
+                                <p>Para cuando ya no se puede ver un libro más y se siente que el cerebro no da para más.</p>
+                            </div>
+                            
+                            <div class="pasos-estudiante">
+                                <h4>🔄 Protocolo de Reset (30 minutos):</h4>
+                                <ol>
+                                    <li><strong>Alarma de descanso:</strong> Parar inmediatamente, aunque "falte poco"</li>
+                                    <li><strong>Cambio de ambiente:</strong> Salir de la habitación de estudio</li>
+                                    <li><strong>Hidratación con intención:</strong> Beber agua lentamente, conscientemente</li>
+                                    <li><strong>Estiramiento de liberación:</strong> 5 minutos de movimientos suaves</li>
+                                    <li><strong>Descanso activo:</strong> No mirar pantallas - mejor mirar por la ventana</li>
+                                </ol>
+                            </div>
 
-                    <button class="btn-estudiante" onclick="iniciarTecnica('motor-arranque')">
-                        ⚡ Activar Motor de Arranque
-                    </button>
+                            <div class="tip-estudiante">
+                                <p>💡 <strong>Recordá:</strong> El agotamiento estudiantil suele ser sobrecarga sensorial + cognitiva. Probar estudiar con ruido marrón o en espacios con menos estímulos visuales.</p>
+                            </div>
+
+                            <button class="btn-estudiante" onclick="iniciarTecnica('reset-agotamiento')">
+                                🔄 Iniciar Reset Guiado
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- LAS OTRAS SECCIONES ORIGINALES CONTINÚAN... -->
+                <!-- 5. PROCRASTINACIÓN -->
+                <div class="acordeon-estudiantes">
+                    <div class="acordeon-item procrastinacion">
+                        <div class="acordeon-header">
+                            <h3><span>⏰</span> Motor de Arranque para la Procrastinación</h3>
+                            <span class="acordeon-icon">▼</span>
+                        </div>
+                        <div class="acordeon-content">
+                            <div class="contexto-problema">
+                                <p>Cuando cuesta empezar y se pasa más tiempo preocupándose por estudiar que estudiando.</p>
+                            </div>
+                            
+                            <div class="pasos-estudiante">
+                                <h4>🚀 Protocolo de Activación (5 minutos):</h4>
+                                <ol>
+                                    <li><strong>Tarea microscópica:</strong> "Solo abrir el Word" o "solo leer el título"</li>
+                                    <li><strong>Body doubling virtual:</strong> Poner video de "study with me" en YouTube</li>
+                                    <li><strong>Premio inmediato:</strong> "Después de 15 minutos, un pequeño premio"</li>
+                                    <li><strong>Cambio de formato:</strong> ¿Se puede estudiar caminando? ¿Grabando audio?</li>
+                                    <li><strong>Tiempo definido:</strong> "Solo 25 minutos, luego PARO"</li>
+                                </ol>
+                            </div>
+
+                            <div class="no-funciona">
+                                <h4>🚫 Lo que NO funciona con procrastinación:</h4>
+                                <ul>
+                                    <li>"Esforzate más" o "poné voluntad"</li>
+                                    <li>Castigarse o regañarse</li>
+                                    <li>Intentar horas de estudio continuo</li>
+                                    <li>Estudiar en silencio absoluto</li>
+                                </ul>
+                            </div>
+
+                            <button class="btn-estudiante" onclick="iniciarTecnica('motor-arranque')">
+                                ⚡ Activar Motor de Arranque
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LAS OTRAS SECCIONES ORIGINALES CONTINÚAN EN ACORDEONES... -->
 
             </div>
         </div>
@@ -559,7 +639,15 @@
     <!-- ===== SCRIPTS ===== -->
     <script src="js/script.js"></script>
     <script>
-        // Funciones específicas para herramientas estudiantiles
+        // Sistema de acordeón
+        document.querySelectorAll('.acordeon-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Funciones específicas
         function iniciarTecnica(tipo) {
             switch(tipo) {
                 case 'reset-agotamiento':
@@ -573,11 +661,6 @@
 
         function iniciarEjercicioAnsiedad() {
             alert('💓 Ejercicio de respiración para ansiedad:\n\nVamos a practicar respiración cuadrada:\n• Inhalar 4 segundos\n• Mantener 4 segundos\n• Exhalar 4 segundos\n• Pausa 4 segundos\n\nRepetir 5 veces. ¡Vamos!');
-        }
-
-        // Timer para técnicas de estudio
-        function iniciarPomodoro() {
-            alert('⏰ Pomodoro iniciado: 25 minutos de estudio focalizado. ¡Se puede!');
         }
     </script>
 </body>
