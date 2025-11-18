@@ -7,278 +7,445 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .herramienta-detalle {
-            padding: 8rem 0 4rem;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fff5f5 0%, #f0f9ff 100%);
-        }
+ <style>
+    .herramienta-detalle {
+        padding: 6rem 0 3rem;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #fef7ff 0%, #f0f9ff 50%, #fff5f5 100%);
+        position: relative;
+    }
 
+    .herramienta-detalle::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #FF6B6B, #06D6A0, #4ECDC4, #FFD166);
+    }
+
+    .supervivencia-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* BANNER INICIAL MEJORADO */
+    .banner-supervivencia {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+        background-size: 200% 200%;
+        color: white;
+        padding: 4rem 3rem;
+        border-radius: 24px;
+        margin: 3rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        animation: gradientShift 8s ease infinite;
+    }
+
+    .banner-supervivencia::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        pointer-events: none;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .banner-supervivencia h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .banner-supervivencia p {
+        font-size: 1.3rem;
+        opacity: 0.95;
+        margin-bottom: 2.5rem;
+        font-weight: 500;
+    }
+
+    /* PILARES MEJORADOS - 2x2 */
+    .pilares-supervivencia {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 2.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .pilar {
+        text-align: center;
+        padding: 2.5rem 2rem;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pilar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.6s;
+    }
+
+    .pilar:hover::before {
+        left: 100%;
+    }
+
+    .pilar:hover {
+        transform: translateY(-8px) scale(1.02);
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .pilar .emoji {
+        font-size: 3.5rem;
+        display: block;
+        margin-bottom: 1.5rem;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    }
+
+    .pilar h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .pilar p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+        line-height: 1.5;
+    }
+
+    .pilar small {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        font-weight: 500;
+    }
+
+    /* SECCIONES DESPLEGABLES MEJORADAS */
+    .seccion-desplegable {
+        background: var(--color-surface);
+        margin-bottom: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-left: 6px solid;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .seccion-desplegable:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .seccion-desplegable.tribus { border-left-color: #FF6B6B; }
+    .seccion-desplegable.acompanantes { border-left-color: #06D6A0; }
+    .seccion-desplegable.trabajo { border-left-color: #4ECDC4; }
+    .seccion-desplegable.economico { border-left-color: #FFD166; }
+
+    .encabezado-desplegable {
+        padding: 2.5rem 3rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-secondary) 100%);
+    }
+
+    .encabezado-desplegable:hover {
+        background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-surface) 100%);
+    }
+
+    .encabezado-desplegable h2 {
+        color: var(--color-text);
+        margin: 0;
+        font-size: 1.9rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 600;
+    }
+
+    .icono-desplegable {
+        font-size: 1.6rem;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        color: var(--color-primary);
+    }
+
+    .seccion-desplegable.abierta .icono-desplegable {
+        transform: rotate(180deg) scale(1.1);
+    }
+
+    .contenido-desplegable {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        background: var(--color-surface);
+    }
+
+    .seccion-desplegable.abierta .contenido-desplegable {
+        max-height: 8000px;
+    }
+
+    .contenido-interno {
+        padding: 0 3rem 3.5rem 3rem;
+    }
+
+    /* CONTENIDO MEJORADO */
+    .intro-seccion {
+        background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-surface) 100%);
+        padding: 2.5rem;
+        border-radius: 18px;
+        margin-bottom: 3rem;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        border-left: 5px solid;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .subseccion {
+        margin-bottom: 3.5rem;
+    }
+
+    .subseccion h3 {
+        color: var(--color-primary);
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--color-secondary);
+    }
+
+    .herramientas-lista {
+        background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-surface) 100%);
+        padding: 3rem;
+        border-radius: 18px;
+        margin: 2.5rem 0;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .herramientas-lista h4 {
+        color: var(--color-primary);
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .herramientas-lista ol, .herramientas-lista ul {
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .herramientas-lista li {
+        margin-bottom: 1.2rem;
+        line-height: 1.7;
+        color: var(--color-text);
+        font-size: 1.15rem;
+        position: relative;
+    }
+
+    .tip-supervivencia {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e3f2fd 100%);
+        border-left: 5px solid var(--color-guide);
+        padding: 2.2rem;
+        margin: 2.5rem 0;
+        border-radius: 16px;
+        font-size: 1.15rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .alerta-practica {
+        background: linear-gradient(135deg, #fffaf0 0%, #fff3e0 100%);
+        border-left: 5px solid #FFD166;
+        padding: 2.2rem;
+        margin: 2.5rem 0;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .ejemplo-concreto {
+        background: linear-gradient(135deg, #f8f5ff 0%, #f3f0ff 100%);
+        border-left: 5px solid #8A85FF;
+        padding: 2.2rem;
+        margin: 2.5rem 0;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .frase-sanadora {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e8f4f8 100%);
+        border-left: 5px solid #667eea;
+        padding: 2rem;
+        margin: 2.5rem 0;
+        font-style: italic;
+        border-radius: 16px;
+        text-align: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+    }
+
+    /* NÚMEROS DE PASOS MEJORADOS */
+    .herramientas-lista ol {
+        counter-reset: step-counter;
+    }
+
+    .herramientas-lista ol li {
+        counter-increment: step-counter;
+        position: relative;
+        padding-left: 4rem;
+        padding-top: 0.5rem;
+    }
+
+    .herramientas-lista ol li:before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        color: white;
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* RESPONSIVE MEJORADO */
+    @media (max-width: 1024px) {
         .supervivencia-container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 1rem;
+            padding: 0 1.5rem;
         }
-
-        /* BANNER INICIAL */
+        
         .banner-supervivencia {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            text-align: center;
+            padding: 3rem 2rem;
         }
-
+        
         .banner-supervivencia h2 {
             font-size: 2.2rem;
-            margin-bottom: 1rem;
         }
-
-        .banner-supervivencia p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
-
+        
         .pilares-supervivencia {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1.5rem;
-            margin-top: 2rem;
         }
+    }
 
-        .pilar {
-            text-align: center;
-            padding: 2rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            transition: var(--transition);
-            cursor: pointer;
+    @media (max-width: 768px) {
+        .herramienta-detalle {
+            padding: 5rem 0 2rem;
         }
-
-        .pilar:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
+        
+        .supervivencia-container {
+            padding: 0 1rem;
         }
-
-        .pilar .emoji {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        /* SECCIONES DESPLEGABLES */
-        .seccion-desplegable {
-            background: var(--color-surface);
-            margin-bottom: 1.5rem;
+        
+        .banner-supervivencia {
+            padding: 2.5rem 1.5rem;
+            margin: 2rem 0;
             border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            border-left: 5px solid;
-            overflow: hidden;
-            transition: var(--transition);
         }
-
-        .seccion-desplegable.tribus { border-left-color: #FF6B6B; }
-        .seccion-desplegable.acompanantes { border-left-color: #06D6A0; }
-        .seccion-desplegable.trabajo { border-left-color: #4ECDC4; }
-        .seccion-desplegable.economico { border-left-color: #FFD166; }
-
+        
+        .banner-supervivencia h2 {
+            font-size: 1.9rem;
+        }
+        
+        .banner-supervivencia p {
+            font-size: 1.15rem;
+        }
+        
         .encabezado-desplegable {
-            padding: 2.5rem 3rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
+            padding: 2rem 1.5rem;
         }
-
-        .encabezado-desplegable:hover {
-            background: var(--color-secondary);
-        }
-
+        
         .encabezado-desplegable h2 {
-            color: var(--color-text);
-            margin: 0;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .icono-desplegable {
             font-size: 1.5rem;
-            transition: transform 0.3s ease;
+            gap: 0.8rem;
         }
-
-        .seccion-desplegable.abierta .icono-desplegable {
-            transform: rotate(180deg);
-        }
-
-        .contenido-desplegable {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            background: var(--color-surface);
-        }
-
-        .seccion-desplegable.abierta .contenido-desplegable {
-            max-height: 5000px;
-        }
-
+        
         .contenido-interno {
-            padding: 0 3rem 3rem 3rem;
+            padding: 0 1.5rem 2.5rem 1.5rem;
         }
-
-        /* Estilos del contenido */
-        .intro-seccion {
-            background: var(--color-secondary);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            border-left: 4px solid currentColor;
-        }
-
-        .subseccion {
-            margin-bottom: 3rem;
-        }
-
-        .subseccion h3 {
-            color: var(--color-primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
+        
         .herramientas-lista {
-            background: var(--color-secondary);
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin: 2rem 0;
+            padding: 2rem 1.5rem;
         }
-
-        .herramientas-lista h4 {
-            color: var(--color-primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .herramientas-lista ol, .herramientas-lista ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .herramientas-lista li {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            color: var(--color-text);
-            font-size: 1.1rem;
-        }
-
-        .tip-supervivencia {
-            background: #f0f9ff;
-            border-left: 4px solid var(--color-guide);
-            padding: 1.8rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-            font-size: 1.1rem;
-        }
-
-        .alerta-practica {
-            background: #fffaf0;
-            border-left: 4px solid #FFD166;
-            padding: 1.8rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-        }
-
+        
+        .intro-seccion,
+        .tip-supervivencia,
+        .alerta-practica,
         .ejemplo-concreto {
-            background: #f8f5ff;
-            border-left: 4px solid #8A85FF;
             padding: 1.8rem;
-            margin: 2rem 0;
-            border-radius: 12px;
         }
-
-        .frase-sanadora {
-            background: #f0f9ff;
-            border-left: 4px solid #667eea;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        /* Números de pasos */
-        .herramientas-lista ol {
-            counter-reset: step-counter;
-        }
-
+        
         .herramientas-lista ol li {
-            counter-increment: step-counter;
-            position: relative;
-            padding-left: 3rem;
+            padding-left: 3.5rem;
         }
-
+        
         .herramientas-lista ol li:before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: -0.2rem;
-            background: var(--color-primary);
-            color: white;
-            width: 2.2rem;
-            height: 2.2rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+            width: 2.5rem;
+            height: 2.5rem;
             font-size: 1rem;
         }
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .supervivencia-container {
-                padding: 0.5rem;
-            }
-            
-            .banner-supervivencia {
-                padding: 2rem 1.5rem;
-                margin: 0 1rem 2rem;
-            }
-            
-            .banner-supervivencia h2 {
-                font-size: 1.8rem;
-            }
-            
-            .encabezado-desplegable {
-                padding: 2rem 1.5rem;
-            }
-            
-            .encabezado-desplegable h2 {
-                font-size: 1.5rem;
-            }
-            
-            .contenido-interno {
-                padding: 0 1.5rem 2rem 1.5rem;
-            }
-            
-            .pilares-supervivencia {
-                grid-template-columns: 1fr;
-            }
-            
-            .herramientas-lista {
-                padding: 1.8rem;
-            }
+    @media (max-width: 480px) {
+        .banner-supervivencia h2 {
+            font-size: 1.7rem;
         }
-    </style>
+        
+        .encabezado-desplegable h2 {
+            font-size: 1.3rem;
+        }
+        
+        .subseccion h3 {
+            font-size: 1.4rem;
+        }
+        
+        .pilar {
+            padding: 2rem 1.5rem;
+        }
+        
+        .pilar .emoji {
+            font-size: 3rem;
+        }
+    }
+</style>
 </head>
 <body>
     <!-- ===== HEADER ===== -->
