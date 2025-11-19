@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
+      <style>
         .herramienta-detalle {
             padding: 8rem 0 4rem;
             min-height: 100vh;
@@ -20,142 +20,49 @@
             padding: 1rem;
         }
 
-    .banner-estudiantes {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 3rem 2rem;
-    border-radius: 20px;
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
+        /* BANNER ESTUDIANTES */
+        .banner-estudiantes {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
 
-.banner-estudiantes::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
-    background-size: 20px 20px;
-    transform: rotate(30deg);
-}
+        .banner-estudiantes h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
 
-.banner-content {
-    position: relative;
-    z-index: 2;
-}
+        .banner-estudiantes p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
 
-.banner-estudiantes h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
 
-.banner-subtitle {
-    font-size: 1.3rem;
-    opacity: 0.95;
-    margin-bottom: 2.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-}
+        .stat-item {
+            text-align: center;
+        }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 3rem 0;
-}
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+        }
 
-.stat-item {
-    text-align: center;
-    padding: 1.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
 
-.stat-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    display: block;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.stat-label {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    line-height: 1.4;
-    font-weight: 500;
-}
-
-.banner-cta {
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50px;
-    display: inline-block;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* RESPONSIVE MEJORADO */
-@media (max-width: 1024px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .banner-estudiantes h2 {
-        font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .banner-estudiantes {
-        padding: 2rem 1.5rem;
-        margin: 0 1rem 2rem;
-    }
-    
-    .banner-estudiantes h2 {
-        font-size: 1.8rem;
-    }
-    
-    .banner-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .stat-item {
-        padding: 1.2rem 1rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .banner-cta {
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
-    }
-}
         /* SISTEMA DE ACORDEÓN */
         .acordeon-estudiantes {
             margin-bottom: 2rem;
