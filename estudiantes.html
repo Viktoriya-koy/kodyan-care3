@@ -20,49 +20,142 @@
             padding: 1rem;
         }
 
-        /* BANNER ESTUDIANTES */
-        .banner-estudiantes {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
+    .banner-estudiantes {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-        .banner-estudiantes h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
+.banner-estudiantes::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+    background-size: 20px 20px;
+    transform: rotate(30deg);
+}
 
-        .banner-estudiantes p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
+.banner-estudiantes h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
 
-        .stat-item {
-            text-align: center;
-        }
+.banner-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
 
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: block;
-        }
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
 
-        .stat-label {
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
+.stat-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
 
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.banner-cta {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* RESPONSIVE MEJORADO */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .banner-estudiantes h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-estudiantes {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem 2rem;
+    }
+    
+    .banner-estudiantes h2 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1.2rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .banner-cta {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
         /* SISTEMA DE ACORDEÓN */
         .acordeon-estudiantes {
             margin-bottom: 2rem;
@@ -300,39 +393,34 @@
         </div>
     </header>
 
-    <!-- ===== CONTENIDO PRINCIPAL ===== -->
-    <main class="herramienta-detalle">
-        <div class="container">
-            <h1>🎓 Kit de Supervivencia Estudiantil</h1>
-            <p class="subtitulo">Herramientas para cuando el estudio se siente abrumador</p>
-
-            <!-- BANNER -->
-            <div class="banner-estudiantes">
-                <h2>No estás en soledad</h2>
-                <p>La ansiedad académica es común, pero hay formas de manejarla</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">74%</span>
-                        <span class="stat-label">Ansiedad pre-examen</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">62%</span>
-                        <span class="stat-label">Síndrome del impostor</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">58%</span>
-                        <span class="stat-label">Agotamiento extremo</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">45%</span>
-                        <span class="stat-label">Crisis de carrera</span>
-                    </div>
-                </div>
+  <!-- BANNER -->
+<div class="banner-estudiantes">
+    <div class="banner-content">
+        <h2>No estás sol@ en esto</h2>
+        <p class="banner-subtitle">Si el estudio te abruma, es normal. La ansiedad académica afecta a más estudiantes de lo que crees:</p>
+        
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">74%</span>
+                <span class="stat-label">siente pánico antes de exámenes</span>
             </div>
-
-            <div class="estudiantes-container">
-
+            <div class="stat-item">
+                <span class="stat-number">62%</span>
+                <span class="stat-label">cree que no merece estar aquí</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">58%</span>
+                <span class="stat-label">llegó al agotamiento total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">45%</span>
+                <span class="stat-label">duda si eligió bien su carrera</span>
+            </div>
+        </div>
+        
+        <p class="banner-cta">🌱 <strong>Respirá hondo</strong> - Encontrá herramientas que realmente funcionen</p>
+    </div>
+</div>
                 <!-- ===== FASE 1: FUNDAMENTOS EMOCIONALES ===== -->
                 
                 <!-- 1. CRISIS EXISTENCIAL -->
